@@ -8,6 +8,7 @@ prog : stat* EOF ;
 
 stat : expr
      |  ID '=' expr
+     | 'if' expr
      ;
 
 expr : expr ('*' | '/') expr

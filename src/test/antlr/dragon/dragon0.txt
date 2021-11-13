@@ -1,0 +1,4 @@
+int a   = 0;
+    float b = 10;
+b123=a+b;
+d=a&&b;

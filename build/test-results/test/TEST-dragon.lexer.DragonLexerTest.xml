@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dragon.lexer.DragonLexerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-11-13T12:17:38" hostname="hengxin-ubuntu" time="0.025">
+  <properties/>
+  <testcase name="testNextToken" classname="dragon.lexer.DragonLexerTest" time="0.025"/>
+  <system-out><![CDATA[Token {type = INT, text = int}
+Token {type = ID, text = a}
+Token {type = ASSIGN, text = =}
+IntNumber{type = INT, val = 0}
+Token {type = SC, text = ;}
+Token {type = FLOAT, text = float}
+Token {type = ID, text = b}
+Token {type = ASSIGN, text = =}
+IntNumber{type = INT, val = 10}
+Token {type = SC, text = ;}
+Token {type = ID, text = b123}
+Token {type = ASSIGN, text = =}
+Token {type = ID, text = a}
+Token {type = ADD, text = +}
+Token {type = ID, text = b}
+Token {type = SC, text = ;}
+Token {type = ID, text = d}
+Token {type = ASSIGN, text = =}
+Token {type = ID, text = a}
+Token {type = AND, text = &&}
+Token {type = ID, text = b}
+Token {type = SC, text = ;}
+Token {type = EOF, text = EOF}
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
