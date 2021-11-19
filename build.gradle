@@ -19,7 +19,7 @@ dependencies {
 // "-long-messages"
 // "-atn"
 generateGrammarSource {
-//    arguments += ["-visitor"]
+    arguments += ["-Xlog", "-visitor"]
 }
 
 test {
