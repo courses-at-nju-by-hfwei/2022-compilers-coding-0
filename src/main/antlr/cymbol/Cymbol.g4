@@ -60,9 +60,43 @@ expr: '(' expr ')'
 
 exprList : expr (',' expr)* ;
 
-MINUS : '-' ;
-LBRACKET : '[' ;
-RBRACKET : ']' ;
+////////////////////////////////////////////
+// You can use "Alt + Insert" to automatically generate
+// the following lexer rules for literals in the grammar above.
+// Note: Remember to rename the automatically generated 'INT' to avoid clash.
+
+EQUAL : '=' ;
+SEMI : ';' ;
+LPAREN : '(' ;
+RPAREN : ')' ;
+COMMA : ',' ;
+LBRACE : '{' ;
+RBRACE : '}' ;
+IF : 'if' ;
+ELSE : 'else' ;
+WHILE : 'while' ;
+FOR : 'for' ;
+RETURN : 'return' ;
+INTTYPE : 'int' ;
+FLOATTYPE : 'float' ;
+VOIDTYPE : 'void' ;
+LBRACK : '[' ;
+RBRACK : ']' ;
+SUB : '-' ;
+LNOT : '!' ;
+POWER : '^' ;
+MUL : '*' ;
+DIV : '/' ;
+ADD : '+' ;
+LT : '<' ;
+LE : '<=' ;
+GT : '>' ;
+GE : '>=' ;
+EQUAL_EQUAL : '==' ;
+NOT_EQUAL : '!=' ;
+LAND : '&&' ;
+LOR : '||' ;
+////////////////////////////////////////////
 
 ID : LETTER (LETTER | [0-9])* ;
 fragment

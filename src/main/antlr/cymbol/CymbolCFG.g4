@@ -7,3 +7,6 @@ prog : prog decl
 decl : varDecl
      | funcDecl
      ;
+
+varDecl : ' ' ;     // just for placeholder
+funcDecl : ' ' ;    // just for placeholder
