@@ -20,7 +20,7 @@ public class DragonParser extends Parser {
 		new PredictionContextCache();
 	public static final int
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
-		ID=10, INT=11;
+		ID=10, WS=11, INT=12;
 	public static final int
 		RULE_program = 0, RULE_block = 1, RULE_declarations = 2, RULE_declaration = 3, 
 		RULE_type = 4, RULE_statements = 5, RULE_statement = 6;
@@ -41,7 +41,8 @@ public class DragonParser extends Parser {
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, null, null, null, null, null, null, null, null, "ID", "INT"
+			null, null, null, null, null, null, null, null, null, null, "ID", "WS", 
+			"INT"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -528,7 +529,7 @@ public class DragonParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\r:\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\16:\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\3\2\3\2\3\2\3\3\3\3\3\3\3\3"+
 		"\3\3\3\4\7\4\32\n\4\f\4\16\4\35\13\4\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6\5"+
 		"\6\'\n\6\3\6\3\6\3\6\3\6\7\6-\n\6\f\6\16\6\60\13\6\3\7\7\7\63\n\7\f\7"+
@@ -539,7 +540,7 @@ public class DragonParser extends Parser {
 		"\2\2\2\32\35\3\2\2\2\33\31\3\2\2\2\33\34\3\2\2\2\34\7\3\2\2\2\35\33\3"+
 		"\2\2\2\36\37\5\n\6\2\37 \7\f\2\2 \t\3\2\2\2!\"\b\6\1\2\"\'\7\5\2\2#\'"+
 		"\7\6\2\2$\'\7\7\2\2%\'\7\b\2\2&!\3\2\2\2&#\3\2\2\2&$\3\2\2\2&%\3\2\2\2"+
-		"\'.\3\2\2\2()\f\3\2\2)*\7\t\2\2*+\7\r\2\2+-\7\n\2\2,(\3\2\2\2-\60\3\2"+
+		"\'.\3\2\2\2()\f\3\2\2)*\7\t\2\2*+\7\16\2\2+-\7\n\2\2,(\3\2\2\2-\60\3\2"+
 		"\2\2.,\3\2\2\2./\3\2\2\2/\13\3\2\2\2\60.\3\2\2\2\61\63\5\16\b\2\62\61"+
 		"\3\2\2\2\63\66\3\2\2\2\64\62\3\2\2\2\64\65\3\2\2\2\65\r\3\2\2\2\66\64"+
 		"\3\2\2\2\678\7\13\2\28\17\3\2\2\2\6\33&.\64";
