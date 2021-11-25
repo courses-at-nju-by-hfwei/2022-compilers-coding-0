@@ -1,0 +1,5 @@
+class T {
+  int x;
+  ;
+}
+class U { int y; }

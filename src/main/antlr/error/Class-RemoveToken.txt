@@ -1,0 +1,1 @@
+class 9 T { int i; }
