@@ -1,7 +1,4 @@
 // Generated from parserll/IfStat.g4 by ANTLR 4.9.2
-
-    package parserll;
-
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
