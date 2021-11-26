@@ -1,7 +1,7 @@
 grammar LRExprPrec;
 
-// Bugs in the antlr plugin;
-// test with command line (comment out the @header line).
+// Bugs in the antlr plugin? It does not parse correctly.
+// Test with command line (remember to comment out the following @header line).
 
 @header {
     package parserllantlr;
@@ -17,6 +17,10 @@ expr[int _p]
        | {3 >= $_p}? '+' expr[4]
       )*
     ;
+
+SEMI : ';' ;
+MUL : '*' ;
+ADD : '+' ;
 
 ID : LETTER (LETTER | [0-9])* ;
 fragment LETTER : [a-zA-Z] ;
