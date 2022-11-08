@@ -1,4 +1,4 @@
-// Generated from parserllantlr/LRExprPrec.g4 by ANTLR 4.9.2
+// Generated from java-escape by ANTLR 4.11.1
 
     package parserllantlr;
 
@@ -11,15 +11,15 @@ import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
 
-@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
+@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue"})
 public class LRExprPrecParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.9.2", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.11.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, T__2=3, ID=4, INT=5, WS=6;
+		SEMI=1, MUL=2, ADD=3, ID=4, INT=5, WS=6;
 	public static final int
 		RULE_stat = 0, RULE_expr = 1;
 	private static String[] makeRuleNames() {
@@ -37,7 +37,7 @@ public class LRExprPrecParser extends Parser {
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, null, null, "ID", "INT", "WS"
+			null, "SEMI", "MUL", "ADD", "ID", "INT", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -75,7 +75,7 @@ public class LRExprPrecParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "LRExprPrec.g4"; }
+	public String getGrammarFileName() { return "java-escape"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -91,10 +91,12 @@ public class LRExprPrecParser extends Parser {
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class StatContext extends ParserRuleContext {
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
 		}
+		public TerminalNode SEMI() { return getToken(LRExprPrecParser.SEMI, 0); }
 		public TerminalNode EOF() { return getToken(LRExprPrecParser.EOF, 0); }
 		public StatContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -124,7 +126,7 @@ public class LRExprPrecParser extends Parser {
 			setState(4);
 			expr(0);
 			setState(5);
-			match(T__0);
+			match(SEMI);
 			setState(6);
 			match(EOF);
 			}
@@ -140,15 +142,24 @@ public class LRExprPrecParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class ExprContext extends ParserRuleContext {
 		public int _p;
 		public TerminalNode INT() { return getToken(LRExprPrecParser.INT, 0); }
 		public TerminalNode ID() { return getToken(LRExprPrecParser.ID, 0); }
+		public List<TerminalNode> MUL() { return getTokens(LRExprPrecParser.MUL); }
+		public TerminalNode MUL(int i) {
+			return getToken(LRExprPrecParser.MUL, i);
+		}
 		public List<ExprContext> expr() {
 			return getRuleContexts(ExprContext.class);
 		}
 		public ExprContext expr(int i) {
 			return getRuleContext(ExprContext.class,i);
+		}
+		public List<TerminalNode> ADD() { return getTokens(LRExprPrecParser.ADD); }
+		public TerminalNode ADD(int i) {
+			return getToken(LRExprPrecParser.ADD, i);
 		}
 		public ExprContext(ParserRuleContext parent, int invokingState) { super(parent, invokingState); }
 		public ExprContext(ParserRuleContext parent, int invokingState, int _p) {
@@ -203,7 +214,7 @@ public class LRExprPrecParser extends Parser {
 						setState(9);
 						if (!(4 >= _localctx._p)) throw new FailedPredicateException(this, "4 >= $_p");
 						setState(10);
-						match(T__1);
+						match(MUL);
 						setState(11);
 						expr(5);
 						}
@@ -213,7 +224,7 @@ public class LRExprPrecParser extends Parser {
 						setState(12);
 						if (!(3 >= _localctx._p)) throw new FailedPredicateException(this, "3 >= $_p");
 						setState(13);
-						match(T__2);
+						match(ADD);
 						setState(14);
 						expr(4);
 						}
@@ -256,13 +267,21 @@ public class LRExprPrecParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\b\27\4\2\t\2\4\3"+
-		"\t\3\3\2\3\2\3\2\3\2\3\3\3\3\3\3\3\3\3\3\3\3\3\3\7\3\22\n\3\f\3\16\3\25"+
-		"\13\3\3\3\2\2\4\2\4\2\3\3\2\6\7\2\26\2\6\3\2\2\2\4\n\3\2\2\2\6\7\5\4\3"+
-		"\2\7\b\7\3\2\2\b\t\7\2\2\3\t\3\3\2\2\2\n\23\t\2\2\2\13\f\6\3\2\3\f\r\7"+
-		"\4\2\2\r\22\5\4\3\2\16\17\6\3\3\3\17\20\7\5\2\2\20\22\5\4\3\2\21\13\3"+
-		"\2\2\2\21\16\3\2\2\2\22\25\3\2\2\2\23\21\3\2\2\2\23\24\3\2\2\2\24\5\3"+
-		"\2\2\2\25\23\3\2\2\2\4\21\23";
+		"\u0004\u0001\u0006\u0015\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001"+
+		"\u0001\u0000\u0001\u0000\u0001\u0000\u0001\u0000\u0001\u0001\u0001\u0001"+
+		"\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0005\u0001"+
+		"\u0010\b\u0001\n\u0001\f\u0001\u0013\t\u0001\u0001\u0001\u0000\u0000\u0002"+
+		"\u0000\u0002\u0000\u0001\u0001\u0000\u0004\u0005\u0014\u0000\u0004\u0001"+
+		"\u0000\u0000\u0000\u0002\b\u0001\u0000\u0000\u0000\u0004\u0005\u0003\u0002"+
+		"\u0001\u0000\u0005\u0006\u0005\u0001\u0000\u0000\u0006\u0007\u0005\u0000"+
+		"\u0000\u0001\u0007\u0001\u0001\u0000\u0000\u0000\b\u0011\u0007\u0000\u0000"+
+		"\u0000\t\n\u0004\u0001\u0000\u0001\n\u000b\u0005\u0002\u0000\u0000\u000b"+
+		"\u0010\u0003\u0002\u0001\u0000\f\r\u0004\u0001\u0001\u0001\r\u000e\u0005"+
+		"\u0003\u0000\u0000\u000e\u0010\u0003\u0002\u0001\u0000\u000f\t\u0001\u0000"+
+		"\u0000\u0000\u000f\f\u0001\u0000\u0000\u0000\u0010\u0013\u0001\u0000\u0000"+
+		"\u0000\u0011\u000f\u0001\u0000\u0000\u0000\u0011\u0012\u0001\u0000\u0000"+
+		"\u0000\u0012\u0003\u0001\u0000\u0000\u0000\u0013\u0011\u0001\u0000\u0000"+
+		"\u0000\u0002\u000f\u0011";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

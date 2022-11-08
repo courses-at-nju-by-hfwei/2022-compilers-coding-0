@@ -1,4 +1,4 @@
-// Generated from parserll/OptionalInit.g4 by ANTLR 4.9.2
+// Generated from java-escape by ANTLR 4.11.1
 
     package parserll;
 
@@ -11,9 +11,9 @@ import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
 
-@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
+@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue"})
 public class OptionalInitParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.9.2", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.11.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -75,7 +75,7 @@ public class OptionalInitParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "OptionalInit.g4"; }
+	public String getGrammarFileName() { return "java-escape"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -91,6 +91,7 @@ public class OptionalInitParser extends Parser {
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class Optional_initContext extends ParserRuleContext {
 		public Optional_initContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -102,6 +103,7 @@ public class OptionalInitParser extends Parser {
 			super.copyFrom(ctx);
 		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class InitContext extends Optional_initContext {
 		public TerminalNode ASSIGN() { return getToken(OptionalInitParser.ASSIGN, 0); }
 		public ExprContext expr() {
@@ -122,6 +124,7 @@ public class OptionalInitParser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class NoInitContext extends Optional_initContext {
 		public NoInitContext(Optional_initContext ctx) { copyFrom(ctx); }
 		@Override
@@ -178,6 +181,7 @@ public class OptionalInitParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class ExprContext extends ParserRuleContext {
 		public TerminalNode ID() { return getToken(OptionalInitParser.ID, 0); }
 		public ExprContext(ParserRuleContext parent, int invokingState) {
@@ -220,6 +224,7 @@ public class OptionalInitParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class DeclContext extends ParserRuleContext {
 		public TerminalNode INT() { return getToken(OptionalInitParser.INT, 0); }
 		public TerminalNode ID() { return getToken(OptionalInitParser.ID, 0); }
@@ -272,6 +277,7 @@ public class OptionalInitParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class ArgContext extends ParserRuleContext {
 		public TerminalNode INT() { return getToken(OptionalInitParser.INT, 0); }
 		public TerminalNode ID() { return getToken(OptionalInitParser.ID, 0); }
@@ -322,6 +328,7 @@ public class OptionalInitParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class Func_callContext extends ParserRuleContext {
 		public TerminalNode ID() { return getToken(OptionalInitParser.ID, 0); }
 		public TerminalNode LPAREN() { return getToken(OptionalInitParser.LPAREN, 0); }
@@ -376,15 +383,26 @@ public class OptionalInitParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\t\"\4\2\t\2\4\3\t"+
-		"\3\4\4\t\4\4\5\t\5\4\6\t\6\3\2\3\2\3\2\5\2\20\n\2\3\3\3\3\3\4\3\4\3\4"+
-		"\3\4\3\4\3\5\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6\3\6\2\2\7\2\4\6\b\n\2\2\2"+
-		"\35\2\17\3\2\2\2\4\21\3\2\2\2\6\23\3\2\2\2\b\30\3\2\2\2\n\34\3\2\2\2\f"+
-		"\r\7\4\2\2\r\20\5\4\3\2\16\20\3\2\2\2\17\f\3\2\2\2\17\16\3\2\2\2\20\3"+
-		"\3\2\2\2\21\22\7\b\2\2\22\5\3\2\2\2\23\24\7\7\2\2\24\25\7\b\2\2\25\26"+
-		"\5\2\2\2\26\27\7\3\2\2\27\7\3\2\2\2\30\31\7\7\2\2\31\32\7\b\2\2\32\33"+
-		"\5\2\2\2\33\t\3\2\2\2\34\35\7\b\2\2\35\36\7\5\2\2\36\37\5\b\5\2\37 \7"+
-		"\6\2\2 \13\3\2\2\2\3\17";
+		"\u0004\u0001\u0007 \u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
+		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004\u0007\u0004\u0001"+
+		"\u0000\u0001\u0000\u0001\u0000\u0003\u0000\u000e\b\u0000\u0001\u0001\u0001"+
+		"\u0001\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0002\u0001"+
+		"\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0004\u0001\u0004\u0001"+
+		"\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0000\u0000\u0005\u0000\u0002"+
+		"\u0004\u0006\b\u0000\u0000\u001b\u0000\r\u0001\u0000\u0000\u0000\u0002"+
+		"\u000f\u0001\u0000\u0000\u0000\u0004\u0011\u0001\u0000\u0000\u0000\u0006"+
+		"\u0016\u0001\u0000\u0000\u0000\b\u001a\u0001\u0000\u0000\u0000\n\u000b"+
+		"\u0005\u0002\u0000\u0000\u000b\u000e\u0003\u0002\u0001\u0000\f\u000e\u0001"+
+		"\u0000\u0000\u0000\r\n\u0001\u0000\u0000\u0000\r\f\u0001\u0000\u0000\u0000"+
+		"\u000e\u0001\u0001\u0000\u0000\u0000\u000f\u0010\u0005\u0006\u0000\u0000"+
+		"\u0010\u0003\u0001\u0000\u0000\u0000\u0011\u0012\u0005\u0005\u0000\u0000"+
+		"\u0012\u0013\u0005\u0006\u0000\u0000\u0013\u0014\u0003\u0000\u0000\u0000"+
+		"\u0014\u0015\u0005\u0001\u0000\u0000\u0015\u0005\u0001\u0000\u0000\u0000"+
+		"\u0016\u0017\u0005\u0005\u0000\u0000\u0017\u0018\u0005\u0006\u0000\u0000"+
+		"\u0018\u0019\u0003\u0000\u0000\u0000\u0019\u0007\u0001\u0000\u0000\u0000"+
+		"\u001a\u001b\u0005\u0006\u0000\u0000\u001b\u001c\u0005\u0003\u0000\u0000"+
+		"\u001c\u001d\u0003\u0006\u0003\u0000\u001d\u001e\u0005\u0004\u0000\u0000"+
+		"\u001e\t\u0001\u0000\u0000\u0000\u0001\r";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

@@ -1,4 +1,4 @@
-// Generated from parserllantlr/LRExprParen.g4 by ANTLR 4.9.2
+// Generated from java-escape by ANTLR 4.11.1
 
     package parserllantlr;
 
@@ -11,9 +11,9 @@ import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
 
-@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
+@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue"})
 public class LRExprParenParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.9.2", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.11.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -75,7 +75,7 @@ public class LRExprParenParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "LRExprParen.g4"; }
+	public String getGrammarFileName() { return "java-escape"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -91,6 +91,7 @@ public class LRExprParenParser extends Parser {
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class StatContext extends ParserRuleContext {
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
@@ -140,6 +141,7 @@ public class LRExprParenParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class ExprContext extends ParserRuleContext {
 		public List<ExprContext> expr() {
 			return getRuleContexts(ExprContext.class);
@@ -285,15 +287,27 @@ public class LRExprParenParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\n\37\4\2\t\2\4\3"+
-		"\t\3\3\2\3\2\3\2\3\2\3\3\3\3\3\3\3\3\3\3\3\3\3\3\5\3\22\n\3\3\3\3\3\3"+
-		"\3\3\3\3\3\3\3\7\3\32\n\3\f\3\16\3\35\13\3\3\3\2\3\4\4\2\4\2\2\2 \2\6"+
-		"\3\2\2\2\4\21\3\2\2\2\6\7\5\4\3\2\7\b\7\3\2\2\b\t\7\2\2\3\t\3\3\2\2\2"+
-		"\n\13\b\3\1\2\13\f\7\6\2\2\f\r\5\4\3\2\r\16\7\7\2\2\16\22\3\2\2\2\17\22"+
-		"\7\t\2\2\20\22\7\b\2\2\21\n\3\2\2\2\21\17\3\2\2\2\21\20\3\2\2\2\22\33"+
-		"\3\2\2\2\23\24\f\7\2\2\24\25\7\4\2\2\25\32\5\4\3\b\26\27\f\6\2\2\27\30"+
-		"\7\5\2\2\30\32\5\4\3\7\31\23\3\2\2\2\31\26\3\2\2\2\32\35\3\2\2\2\33\31"+
-		"\3\2\2\2\33\34\3\2\2\2\34\5\3\2\2\2\35\33\3\2\2\2\5\21\31\33";
+		"\u0004\u0001\b\u001d\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0001"+
+		"\u0000\u0001\u0000\u0001\u0000\u0001\u0000\u0001\u0001\u0001\u0001\u0001"+
+		"\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0003\u0001\u0010"+
+		"\b\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
+		"\u0001\u0005\u0001\u0018\b\u0001\n\u0001\f\u0001\u001b\t\u0001\u0001\u0001"+
+		"\u0000\u0001\u0002\u0002\u0000\u0002\u0000\u0000\u001e\u0000\u0004\u0001"+
+		"\u0000\u0000\u0000\u0002\u000f\u0001\u0000\u0000\u0000\u0004\u0005\u0003"+
+		"\u0002\u0001\u0000\u0005\u0006\u0005\u0001\u0000\u0000\u0006\u0007\u0005"+
+		"\u0000\u0000\u0001\u0007\u0001\u0001\u0000\u0000\u0000\b\t\u0006\u0001"+
+		"\uffff\uffff\u0000\t\n\u0005\u0004\u0000\u0000\n\u000b\u0003\u0002\u0001"+
+		"\u0000\u000b\f\u0005\u0005\u0000\u0000\f\u0010\u0001\u0000\u0000\u0000"+
+		"\r\u0010\u0005\u0007\u0000\u0000\u000e\u0010\u0005\u0006\u0000\u0000\u000f"+
+		"\b\u0001\u0000\u0000\u0000\u000f\r\u0001\u0000\u0000\u0000\u000f\u000e"+
+		"\u0001\u0000\u0000\u0000\u0010\u0019\u0001\u0000\u0000\u0000\u0011\u0012"+
+		"\n\u0005\u0000\u0000\u0012\u0013\u0005\u0002\u0000\u0000\u0013\u0018\u0003"+
+		"\u0002\u0001\u0006\u0014\u0015\n\u0004\u0000\u0000\u0015\u0016\u0005\u0003"+
+		"\u0000\u0000\u0016\u0018\u0003\u0002\u0001\u0005\u0017\u0011\u0001\u0000"+
+		"\u0000\u0000\u0017\u0014\u0001\u0000\u0000\u0000\u0018\u001b\u0001\u0000"+
+		"\u0000\u0000\u0019\u0017\u0001\u0000\u0000\u0000\u0019\u001a\u0001\u0000"+
+		"\u0000\u0000\u001a\u0003\u0001\u0000\u0000\u0000\u001b\u0019\u0001\u0000"+
+		"\u0000\u0000\u0003\u000f\u0017\u0019";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

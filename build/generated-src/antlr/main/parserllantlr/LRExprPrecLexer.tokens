@@ -1,6 +1,6 @@
-T__0=1
-T__1=2
-T__2=3
+SEMI=1
+MUL=2
+ADD=3
 ID=4
 INT=5
 WS=6

@@ -1,5 +1,9 @@
 grammar Class;
 
+@header {
+package classdef;
+}
+
 prog : classDef+ ;
 
 classDef : 'class' ID '{' member+ '}'

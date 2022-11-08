@@ -1,7 +1,7 @@
 lexer grammar SimpleExprLexer;
 
 @header {
-    package simpleexprlexer;
+package simpleexprlexer;
 }
 
 IF : 'if' ;

@@ -1,6 +1,6 @@
-// Generated from cymbol/Cymbol.g4 by ANTLR 4.9.2
+// Generated from java-escape by ANTLR 4.11.1
 
-    package cymbol;
+package cymbol;
 
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
@@ -12,6 +12,7 @@ import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
  * @param <T> The return type of the visit operation. Use {@link Void} for
  * operations with no return type.
  */
+@SuppressWarnings("CheckReturnValue")
 public class CymbolBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements CymbolVisitor<T> {
 	/**
 	 * {@inheritDoc}

@@ -1,5 +1,9 @@
 grammar CymbolCFG;
 
+@header {
+package cymbolcfg;
+}
+
 prog : prog decl
      | decl
      ;

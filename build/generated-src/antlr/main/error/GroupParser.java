@@ -1,4 +1,7 @@
-// Generated from error/Group.g4 by ANTLR 4.9.2
+// Generated from java-escape by ANTLR 4.11.1
+
+package group;
+
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -8,9 +11,9 @@ import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
 
-@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
+@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue"})
 public class GroupParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.9.2", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.11.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -72,7 +75,7 @@ public class GroupParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "Group.g4"; }
+	public String getGrammarFileName() { return "java-escape"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -88,6 +91,7 @@ public class GroupParser extends Parser {
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class GroupContext extends ParserRuleContext {
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
@@ -155,6 +159,7 @@ public class GroupParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class ExprContext extends ParserRuleContext {
 		public AtomContext atom() {
 			return getRuleContext(AtomContext.class,0);
@@ -204,6 +209,7 @@ public class GroupParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class AtomContext extends ParserRuleContext {
 		public TerminalNode ID() { return getToken(GroupParser.ID, 0); }
 		public TerminalNode INT() { return getToken(GroupParser.INT, 0); }
@@ -257,13 +263,21 @@ public class GroupParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\n\31\4\2\t\2\4\3"+
-		"\t\3\4\4\t\4\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\5\2\21\n\2\3\3\3\3\3\3\3"+
-		"\3\3\4\3\4\3\4\2\2\5\2\4\6\2\3\3\2\b\t\2\26\2\20\3\2\2\2\4\22\3\2\2\2"+
-		"\6\26\3\2\2\2\b\t\7\3\2\2\t\n\5\4\3\2\n\13\7\4\2\2\13\21\3\2\2\2\f\r\7"+
-		"\5\2\2\r\16\5\4\3\2\16\17\7\6\2\2\17\21\3\2\2\2\20\b\3\2\2\2\20\f\3\2"+
-		"\2\2\21\3\3\2\2\2\22\23\5\6\4\2\23\24\7\7\2\2\24\25\7\b\2\2\25\5\3\2\2"+
-		"\2\26\27\t\2\2\2\27\7\3\2\2\2\3\20";
+		"\u0004\u0001\b\u0017\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
+		"\u0002\u0007\u0002\u0001\u0000\u0001\u0000\u0001\u0000\u0001\u0000\u0001"+
+		"\u0000\u0001\u0000\u0001\u0000\u0001\u0000\u0003\u0000\u000f\b\u0000\u0001"+
+		"\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0002\u0001\u0002\u0001"+
+		"\u0002\u0000\u0000\u0003\u0000\u0002\u0004\u0000\u0001\u0001\u0000\u0006"+
+		"\u0007\u0014\u0000\u000e\u0001\u0000\u0000\u0000\u0002\u0010\u0001\u0000"+
+		"\u0000\u0000\u0004\u0014\u0001\u0000\u0000\u0000\u0006\u0007\u0005\u0001"+
+		"\u0000\u0000\u0007\b\u0003\u0002\u0001\u0000\b\t\u0005\u0002\u0000\u0000"+
+		"\t\u000f\u0001\u0000\u0000\u0000\n\u000b\u0005\u0003\u0000\u0000\u000b"+
+		"\f\u0003\u0002\u0001\u0000\f\r\u0005\u0004\u0000\u0000\r\u000f\u0001\u0000"+
+		"\u0000\u0000\u000e\u0006\u0001\u0000\u0000\u0000\u000e\n\u0001\u0000\u0000"+
+		"\u0000\u000f\u0001\u0001\u0000\u0000\u0000\u0010\u0011\u0003\u0004\u0002"+
+		"\u0000\u0011\u0012\u0005\u0005\u0000\u0000\u0012\u0013\u0005\u0006\u0000"+
+		"\u0000\u0013\u0003\u0001\u0000\u0000\u0000\u0014\u0015\u0007\u0000\u0000"+
+		"\u0000\u0015\u0005\u0001\u0000\u0000\u0000\u0001\u000e";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

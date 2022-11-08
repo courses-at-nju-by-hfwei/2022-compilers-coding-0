@@ -1,6 +1,6 @@
-// Generated from cymbol/Cymbol.g4 by ANTLR 4.9.2
+// Generated from java-escape by ANTLR 4.11.1
 
-    package cymbol;
+package cymbol;
 
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 

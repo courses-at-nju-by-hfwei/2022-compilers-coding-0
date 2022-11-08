@@ -1,4 +1,7 @@
-// Generated from cymbol/CymbolCFG.g4 by ANTLR 4.9.2
+// Generated from java-escape by ANTLR 4.11.1
+
+package cymbolcfg;
+
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -8,9 +11,9 @@ import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
 
-@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
+@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue"})
 public class CymbolCFGParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.9.2", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.11.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -71,7 +74,7 @@ public class CymbolCFGParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "CymbolCFG.g4"; }
+	public String getGrammarFileName() { return "java-escape"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -87,6 +90,7 @@ public class CymbolCFGParser extends Parser {
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class ProgContext extends ParserRuleContext {
 		public DeclContext decl() {
 			return getRuleContext(DeclContext.class,0);
@@ -168,6 +172,7 @@ public class CymbolCFGParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class DeclContext extends ParserRuleContext {
 		public VarDeclContext varDecl() {
 			return getRuleContext(VarDeclContext.class,0);
@@ -228,6 +233,7 @@ public class CymbolCFGParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class VarDeclContext extends ParserRuleContext {
 		public VarDeclContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -269,6 +275,7 @@ public class CymbolCFGParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class FuncDeclContext extends ParserRuleContext {
 		public FuncDeclContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -326,14 +333,24 @@ public class CymbolCFGParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\3\35\4\2\t\2\4\3"+
-		"\t\3\4\4\t\4\4\5\t\5\3\2\3\2\3\2\3\2\3\2\7\2\20\n\2\f\2\16\2\23\13\2\3"+
-		"\3\3\3\5\3\27\n\3\3\4\3\4\3\5\3\5\3\5\2\3\2\6\2\4\6\b\2\2\2\32\2\n\3\2"+
-		"\2\2\4\26\3\2\2\2\6\30\3\2\2\2\b\32\3\2\2\2\n\13\b\2\1\2\13\f\5\4\3\2"+
-		"\f\21\3\2\2\2\r\16\f\4\2\2\16\20\5\4\3\2\17\r\3\2\2\2\20\23\3\2\2\2\21"+
-		"\17\3\2\2\2\21\22\3\2\2\2\22\3\3\2\2\2\23\21\3\2\2\2\24\27\5\6\4\2\25"+
-		"\27\5\b\5\2\26\24\3\2\2\2\26\25\3\2\2\2\27\5\3\2\2\2\30\31\7\3\2\2\31"+
-		"\7\3\2\2\2\32\33\7\3\2\2\33\t\3\2\2\2\4\21\26";
+		"\u0004\u0001\u0001\u001b\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001"+
+		"\u0002\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0001\u0000\u0001\u0000"+
+		"\u0001\u0000\u0001\u0000\u0001\u0000\u0005\u0000\u000e\b\u0000\n\u0000"+
+		"\f\u0000\u0011\t\u0000\u0001\u0001\u0001\u0001\u0003\u0001\u0015\b\u0001"+
+		"\u0001\u0002\u0001\u0002\u0001\u0003\u0001\u0003\u0001\u0003\u0000\u0001"+
+		"\u0000\u0004\u0000\u0002\u0004\u0006\u0000\u0000\u0018\u0000\b\u0001\u0000"+
+		"\u0000\u0000\u0002\u0014\u0001\u0000\u0000\u0000\u0004\u0016\u0001\u0000"+
+		"\u0000\u0000\u0006\u0018\u0001\u0000\u0000\u0000\b\t\u0006\u0000\uffff"+
+		"\uffff\u0000\t\n\u0003\u0002\u0001\u0000\n\u000f\u0001\u0000\u0000\u0000"+
+		"\u000b\f\n\u0002\u0000\u0000\f\u000e\u0003\u0002\u0001\u0000\r\u000b\u0001"+
+		"\u0000\u0000\u0000\u000e\u0011\u0001\u0000\u0000\u0000\u000f\r\u0001\u0000"+
+		"\u0000\u0000\u000f\u0010\u0001\u0000\u0000\u0000\u0010\u0001\u0001\u0000"+
+		"\u0000\u0000\u0011\u000f\u0001\u0000\u0000\u0000\u0012\u0015\u0003\u0004"+
+		"\u0002\u0000\u0013\u0015\u0003\u0006\u0003\u0000\u0014\u0012\u0001\u0000"+
+		"\u0000\u0000\u0014\u0013\u0001\u0000\u0000\u0000\u0015\u0003\u0001\u0000"+
+		"\u0000\u0000\u0016\u0017\u0005\u0001\u0000\u0000\u0017\u0005\u0001\u0000"+
+		"\u0000\u0000\u0018\u0019\u0005\u0001\u0000\u0000\u0019\u0007\u0001\u0000"+
+		"\u0000\u0000\u0002\u000f\u0014";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

@@ -8,7 +8,7 @@
 grammar Cymbol;
 
 @header {
-    package cymbol;
+package cymbol;
 }
 
 prog : (varDecl | functionDecl)+ EOF

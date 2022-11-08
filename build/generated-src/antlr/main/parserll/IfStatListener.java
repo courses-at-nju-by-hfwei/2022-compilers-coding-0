@@ -1,4 +1,7 @@
-// Generated from parserll/IfStat.g4 by ANTLR 4.9.2
+// Generated from java-escape by ANTLR 4.11.1
+
+    package parserll;
+
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -6,6 +9,16 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  * {@link IfStatParser}.
  */
 public interface IfStatListener extends ParseTreeListener {
+	/**
+	 * Enter a parse tree produced by {@link IfStatParser#prog}.
+	 * @param ctx the parse tree
+	 */
+	void enterProg(IfStatParser.ProgContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link IfStatParser#prog}.
+	 * @param ctx the parse tree
+	 */
+	void exitProg(IfStatParser.ProgContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link IfStatParser#stat}.
 	 * @param ctx the parse tree

@@ -1,4 +1,7 @@
-// Generated from parserll/IfStat.g4 by ANTLR 4.9.2
+// Generated from java-escape by ANTLR 4.11.1
+
+    package parserll;
+
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -8,9 +11,9 @@ import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
 
-@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
+@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue"})
 public class IfStatParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.9.2", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.11.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -18,10 +21,10 @@ public class IfStatParser extends Parser {
 	public static final int
 		T__0=1, T__1=2, T__2=3, ID=4, WS=5;
 	public static final int
-		RULE_stat = 0, RULE_expr = 1;
+		RULE_prog = 0, RULE_stat = 1, RULE_expr = 2;
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"stat", "expr"
+			"prog", "stat", "expr"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -72,7 +75,7 @@ public class IfStatParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "IfStat.g4"; }
+	public String getGrammarFileName() { return "java-escape"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -88,6 +91,55 @@ public class IfStatParser extends Parser {
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
+	@SuppressWarnings("CheckReturnValue")
+	public static class ProgContext extends ParserRuleContext {
+		public StatContext stat() {
+			return getRuleContext(StatContext.class,0);
+		}
+		public TerminalNode EOF() { return getToken(IfStatParser.EOF, 0); }
+		public ProgContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_prog; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof IfStatListener ) ((IfStatListener)listener).enterProg(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof IfStatListener ) ((IfStatListener)listener).exitProg(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof IfStatVisitor ) return ((IfStatVisitor<? extends T>)visitor).visitProg(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final ProgContext prog() throws RecognitionException {
+		ProgContext _localctx = new ProgContext(_ctx, getState());
+		enterRule(_localctx, 0, RULE_prog);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(6);
+			stat();
+			setState(7);
+			match(EOF);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	@SuppressWarnings("CheckReturnValue")
 	public static class StatContext extends ParserRuleContext {
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
@@ -119,26 +171,13 @@ public class IfStatParser extends Parser {
 
 	public final StatContext stat() throws RecognitionException {
 		StatContext _localctx = new StatContext(_ctx, getState());
-		enterRule(_localctx, 0, RULE_stat);
+		enterRule(_localctx, 2, RULE_stat);
 		try {
-			setState(17);
+			setState(22);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,0,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
-				{
-				setState(4);
-				match(T__0);
-				setState(5);
-				expr();
-				setState(6);
-				match(T__1);
-				setState(7);
-				stat();
-				}
-				break;
-			case 2:
-				enterOuterAlt(_localctx, 2);
 				{
 				setState(9);
 				match(T__0);
@@ -148,16 +187,29 @@ public class IfStatParser extends Parser {
 				match(T__1);
 				setState(12);
 				stat();
-				setState(13);
-				match(T__2);
+				}
+				break;
+			case 2:
+				enterOuterAlt(_localctx, 2);
+				{
 				setState(14);
+				match(T__0);
+				setState(15);
+				expr();
+				setState(16);
+				match(T__1);
+				setState(17);
+				stat();
+				setState(18);
+				match(T__2);
+				setState(19);
 				stat();
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(16);
+				setState(21);
 				expr();
 				}
 				break;
@@ -174,6 +226,7 @@ public class IfStatParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class ExprContext extends ParserRuleContext {
 		public TerminalNode ID() { return getToken(IfStatParser.ID, 0); }
 		public ExprContext(ParserRuleContext parent, int invokingState) {
@@ -197,11 +250,11 @@ public class IfStatParser extends Parser {
 
 	public final ExprContext expr() throws RecognitionException {
 		ExprContext _localctx = new ExprContext(_ctx, getState());
-		enterRule(_localctx, 2, RULE_expr);
+		enterRule(_localctx, 4, RULE_expr);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(19);
+			setState(24);
 			match(ID);
 			}
 		}
@@ -217,13 +270,24 @@ public class IfStatParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\7\30\4\2\t\2\4\3"+
-		"\t\3\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\5\2\24\n\2\3"+
-		"\3\3\3\3\3\2\2\4\2\4\2\2\2\27\2\23\3\2\2\2\4\25\3\2\2\2\6\7\7\3\2\2\7"+
-		"\b\5\4\3\2\b\t\7\4\2\2\t\n\5\2\2\2\n\24\3\2\2\2\13\f\7\3\2\2\f\r\5\4\3"+
-		"\2\r\16\7\4\2\2\16\17\5\2\2\2\17\20\7\5\2\2\20\21\5\2\2\2\21\24\3\2\2"+
-		"\2\22\24\5\4\3\2\23\6\3\2\2\2\23\13\3\2\2\2\23\22\3\2\2\2\24\3\3\2\2\2"+
-		"\25\26\7\6\2\2\26\5\3\2\2\2\3\23";
+		"\u0004\u0001\u0005\u001b\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001"+
+		"\u0002\u0002\u0007\u0002\u0001\u0000\u0001\u0000\u0001\u0000\u0001\u0001"+
+		"\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
+		"\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
+		"\u0003\u0001\u0017\b\u0001\u0001\u0002\u0001\u0002\u0001\u0002\u0000\u0000"+
+		"\u0003\u0000\u0002\u0004\u0000\u0000\u0019\u0000\u0006\u0001\u0000\u0000"+
+		"\u0000\u0002\u0016\u0001\u0000\u0000\u0000\u0004\u0018\u0001\u0000\u0000"+
+		"\u0000\u0006\u0007\u0003\u0002\u0001\u0000\u0007\b\u0005\u0000\u0000\u0001"+
+		"\b\u0001\u0001\u0000\u0000\u0000\t\n\u0005\u0001\u0000\u0000\n\u000b\u0003"+
+		"\u0004\u0002\u0000\u000b\f\u0005\u0002\u0000\u0000\f\r\u0003\u0002\u0001"+
+		"\u0000\r\u0017\u0001\u0000\u0000\u0000\u000e\u000f\u0005\u0001\u0000\u0000"+
+		"\u000f\u0010\u0003\u0004\u0002\u0000\u0010\u0011\u0005\u0002\u0000\u0000"+
+		"\u0011\u0012\u0003\u0002\u0001\u0000\u0012\u0013\u0005\u0003\u0000\u0000"+
+		"\u0013\u0014\u0003\u0002\u0001\u0000\u0014\u0017\u0001\u0000\u0000\u0000"+
+		"\u0015\u0017\u0003\u0004\u0002\u0000\u0016\t\u0001\u0000\u0000\u0000\u0016"+
+		"\u000e\u0001\u0000\u0000\u0000\u0016\u0015\u0001\u0000\u0000\u0000\u0017"+
+		"\u0003\u0001\u0000\u0000\u0000\u0018\u0019\u0005\u0004\u0000\u0000\u0019"+
+		"\u0005\u0001\u0000\u0000\u0000\u0001\u0016";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

@@ -1,4 +1,4 @@
-// Generated from parserll/SFa.g4 by ANTLR 4.9.2
+// Generated from java-escape by ANTLR 4.11.1
 
     package parserll;
 
@@ -11,9 +11,9 @@ import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
 
-@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
+@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue"})
 public class SFaParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.9.2", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.11.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -75,7 +75,7 @@ public class SFaParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "SFa.g4"; }
+	public String getGrammarFileName() { return "java-escape"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -91,6 +91,7 @@ public class SFaParser extends Parser {
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class SContext extends ParserRuleContext {
 		public FContext f() {
 			return getRuleContext(FContext.class,0);
@@ -164,6 +165,7 @@ public class SFaParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class FContext extends ParserRuleContext {
 		public FContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -206,11 +208,17 @@ public class SFaParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\7\22\4\2\t\2\4\3"+
-		"\t\3\3\2\3\2\3\2\3\2\3\2\3\2\3\2\5\2\16\n\2\3\3\3\3\3\3\2\2\4\2\4\2\2"+
-		"\2\20\2\r\3\2\2\2\4\17\3\2\2\2\6\16\5\4\3\2\7\b\7\4\2\2\b\t\5\2\2\2\t"+
-		"\n\7\5\2\2\n\13\5\4\3\2\13\f\7\6\2\2\f\16\3\2\2\2\r\6\3\2\2\2\r\7\3\2"+
-		"\2\2\16\3\3\2\2\2\17\20\7\3\2\2\20\5\3\2\2\2\3\r";
+		"\u0004\u0001\u0005\u0010\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001"+
+		"\u0001\u0000\u0001\u0000\u0001\u0000\u0001\u0000\u0001\u0000\u0001\u0000"+
+		"\u0001\u0000\u0003\u0000\f\b\u0000\u0001\u0001\u0001\u0001\u0001\u0001"+
+		"\u0000\u0000\u0002\u0000\u0002\u0000\u0000\u000e\u0000\u000b\u0001\u0000"+
+		"\u0000\u0000\u0002\r\u0001\u0000\u0000\u0000\u0004\f\u0003\u0002\u0001"+
+		"\u0000\u0005\u0006\u0005\u0002\u0000\u0000\u0006\u0007\u0003\u0000\u0000"+
+		"\u0000\u0007\b\u0005\u0003\u0000\u0000\b\t\u0003\u0002\u0001\u0000\t\n"+
+		"\u0005\u0004\u0000\u0000\n\f\u0001\u0000\u0000\u0000\u000b\u0004\u0001"+
+		"\u0000\u0000\u0000\u000b\u0005\u0001\u0000\u0000\u0000\f\u0001\u0001\u0000"+
+		"\u0000\u0000\r\u000e\u0005\u0001\u0000\u0000\u000e\u0003\u0001\u0000\u0000"+
+		"\u0000\u0001\u000b";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

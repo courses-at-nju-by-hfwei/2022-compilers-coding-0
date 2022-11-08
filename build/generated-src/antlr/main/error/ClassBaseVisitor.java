@@ -1,4 +1,7 @@
-// Generated from error/Class.g4 by ANTLR 4.9.2
+// Generated from java-escape by ANTLR 4.11.1
+
+package classdef;
+
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**
@@ -9,6 +12,7 @@ import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
  * @param <T> The return type of the visit operation. Use {@link Void} for
  * operations with no return type.
  */
+@SuppressWarnings("CheckReturnValue")
 public class ClassBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements ClassVisitor<T> {
 	/**
 	 * {@inheritDoc}

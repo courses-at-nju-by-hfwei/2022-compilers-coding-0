@@ -1,5 +1,9 @@
 grammar Group;
 
+@header {
+package group;
+}
+
 // [i^2]
 // []: following set {'^', ']'}
 group : '[' expr ']'

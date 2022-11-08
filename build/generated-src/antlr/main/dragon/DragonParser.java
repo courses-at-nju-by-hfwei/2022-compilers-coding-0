@@ -1,4 +1,4 @@
-// Generated from dragon/Dragon.g4 by ANTLR 4.9.2
+// Generated from java-escape by ANTLR 4.11.1
 
     package dragon;
 
@@ -11,9 +11,9 @@ import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
 
-@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
+@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue"})
 public class DragonParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.9.2", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.11.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -80,7 +80,7 @@ public class DragonParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "Dragon.g4"; }
+	public String getGrammarFileName() { return "java-escape"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -96,6 +96,7 @@ public class DragonParser extends Parser {
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class ProgramContext extends ParserRuleContext {
 		public BlockContext block() {
 			return getRuleContext(BlockContext.class,0);
@@ -143,6 +144,7 @@ public class DragonParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class BlockContext extends ParserRuleContext {
 		public DeclarationsContext declarations() {
 			return getRuleContext(DeclarationsContext.class,0);
@@ -196,6 +198,7 @@ public class DragonParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class DeclarationsContext extends ParserRuleContext {
 		public List<DeclarationContext> declaration() {
 			return getRuleContexts(DeclarationContext.class);
@@ -232,7 +235,7 @@ public class DragonParser extends Parser {
 			setState(25);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__2) | (1L << T__3) | (1L << T__4) | (1L << T__5))) != 0)) {
+			while (((_la) & ~0x3f) == 0 && ((1L << _la) & 120L) != 0) {
 				{
 				{
 				setState(22);
@@ -256,6 +259,7 @@ public class DragonParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class DeclarationContext extends ParserRuleContext {
 		public TypeContext type() {
 			return getRuleContext(TypeContext.class,0);
@@ -303,6 +307,7 @@ public class DragonParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class TypeContext extends ParserRuleContext {
 		public TypeContext type() {
 			return getRuleContext(TypeContext.class,0);
@@ -412,6 +417,7 @@ public class DragonParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class StatementsContext extends ParserRuleContext {
 		public List<StatementContext> statement() {
 			return getRuleContexts(StatementContext.class);
@@ -472,6 +478,7 @@ public class DragonParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class StatementContext extends ParserRuleContext {
 		public StatementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -529,21 +536,39 @@ public class DragonParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\16:\4\2\t\2\4\3\t"+
-		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\3\2\3\2\3\2\3\3\3\3\3\3\3\3"+
-		"\3\3\3\4\7\4\32\n\4\f\4\16\4\35\13\4\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6\5"+
-		"\6\'\n\6\3\6\3\6\3\6\3\6\7\6-\n\6\f\6\16\6\60\13\6\3\7\7\7\63\n\7\f\7"+
-		"\16\7\66\13\7\3\b\3\b\3\b\2\3\n\t\2\4\6\b\n\f\16\2\2\28\2\20\3\2\2\2\4"+
-		"\23\3\2\2\2\6\33\3\2\2\2\b\36\3\2\2\2\n&\3\2\2\2\f\64\3\2\2\2\16\67\3"+
-		"\2\2\2\20\21\5\4\3\2\21\22\7\2\2\3\22\3\3\2\2\2\23\24\7\3\2\2\24\25\5"+
-		"\6\4\2\25\26\5\f\7\2\26\27\7\4\2\2\27\5\3\2\2\2\30\32\5\b\5\2\31\30\3"+
-		"\2\2\2\32\35\3\2\2\2\33\31\3\2\2\2\33\34\3\2\2\2\34\7\3\2\2\2\35\33\3"+
-		"\2\2\2\36\37\5\n\6\2\37 \7\f\2\2 \t\3\2\2\2!\"\b\6\1\2\"\'\7\5\2\2#\'"+
-		"\7\6\2\2$\'\7\7\2\2%\'\7\b\2\2&!\3\2\2\2&#\3\2\2\2&$\3\2\2\2&%\3\2\2\2"+
-		"\'.\3\2\2\2()\f\3\2\2)*\7\t\2\2*+\7\16\2\2+-\7\n\2\2,(\3\2\2\2-\60\3\2"+
-		"\2\2.,\3\2\2\2./\3\2\2\2/\13\3\2\2\2\60.\3\2\2\2\61\63\5\16\b\2\62\61"+
-		"\3\2\2\2\63\66\3\2\2\2\64\62\3\2\2\2\64\65\3\2\2\2\65\r\3\2\2\2\66\64"+
-		"\3\2\2\2\678\7\13\2\28\17\3\2\2\2\6\33&.\64";
+		"\u0004\u0001\f8\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
+		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004\u0007\u0004\u0002"+
+		"\u0005\u0007\u0005\u0002\u0006\u0007\u0006\u0001\u0000\u0001\u0000\u0001"+
+		"\u0000\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
+		"\u0002\u0005\u0002\u0018\b\u0002\n\u0002\f\u0002\u001b\t\u0002\u0001\u0003"+
+		"\u0001\u0003\u0001\u0003\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004"+
+		"\u0001\u0004\u0003\u0004%\b\u0004\u0001\u0004\u0001\u0004\u0001\u0004"+
+		"\u0001\u0004\u0005\u0004+\b\u0004\n\u0004\f\u0004.\t\u0004\u0001\u0005"+
+		"\u0005\u00051\b\u0005\n\u0005\f\u00054\t\u0005\u0001\u0006\u0001\u0006"+
+		"\u0001\u0006\u0000\u0001\b\u0007\u0000\u0002\u0004\u0006\b\n\f\u0000\u0000"+
+		"6\u0000\u000e\u0001\u0000\u0000\u0000\u0002\u0011\u0001\u0000\u0000\u0000"+
+		"\u0004\u0019\u0001\u0000\u0000\u0000\u0006\u001c\u0001\u0000\u0000\u0000"+
+		"\b$\u0001\u0000\u0000\u0000\n2\u0001\u0000\u0000\u0000\f5\u0001\u0000"+
+		"\u0000\u0000\u000e\u000f\u0003\u0002\u0001\u0000\u000f\u0010\u0005\u0000"+
+		"\u0000\u0001\u0010\u0001\u0001\u0000\u0000\u0000\u0011\u0012\u0005\u0001"+
+		"\u0000\u0000\u0012\u0013\u0003\u0004\u0002\u0000\u0013\u0014\u0003\n\u0005"+
+		"\u0000\u0014\u0015\u0005\u0002\u0000\u0000\u0015\u0003\u0001\u0000\u0000"+
+		"\u0000\u0016\u0018\u0003\u0006\u0003\u0000\u0017\u0016\u0001\u0000\u0000"+
+		"\u0000\u0018\u001b\u0001\u0000\u0000\u0000\u0019\u0017\u0001\u0000\u0000"+
+		"\u0000\u0019\u001a\u0001\u0000\u0000\u0000\u001a\u0005\u0001\u0000\u0000"+
+		"\u0000\u001b\u0019\u0001\u0000\u0000\u0000\u001c\u001d\u0003\b\u0004\u0000"+
+		"\u001d\u001e\u0005\n\u0000\u0000\u001e\u0007\u0001\u0000\u0000\u0000\u001f"+
+		" \u0006\u0004\uffff\uffff\u0000 %\u0005\u0003\u0000\u0000!%\u0005\u0004"+
+		"\u0000\u0000\"%\u0005\u0005\u0000\u0000#%\u0005\u0006\u0000\u0000$\u001f"+
+		"\u0001\u0000\u0000\u0000$!\u0001\u0000\u0000\u0000$\"\u0001\u0000\u0000"+
+		"\u0000$#\u0001\u0000\u0000\u0000%,\u0001\u0000\u0000\u0000&\'\n\u0001"+
+		"\u0000\u0000\'(\u0005\u0007\u0000\u0000()\u0005\f\u0000\u0000)+\u0005"+
+		"\b\u0000\u0000*&\u0001\u0000\u0000\u0000+.\u0001\u0000\u0000\u0000,*\u0001"+
+		"\u0000\u0000\u0000,-\u0001\u0000\u0000\u0000-\t\u0001\u0000\u0000\u0000"+
+		".,\u0001\u0000\u0000\u0000/1\u0003\f\u0006\u00000/\u0001\u0000\u0000\u0000"+
+		"14\u0001\u0000\u0000\u000020\u0001\u0000\u0000\u000023\u0001\u0000\u0000"+
+		"\u00003\u000b\u0001\u0000\u0000\u000042\u0001\u0000\u0000\u000056\u0005"+
+		"\t\u0000\u00006\r\u0001\u0000\u0000\u0000\u0004\u0019$,2";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

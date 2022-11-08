@@ -1,4 +1,7 @@
-// Generated from parserll/IfStat.g4 by ANTLR 4.9.2
+// Generated from java-escape by ANTLR 4.11.1
+
+    package parserll;
+
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -9,6 +12,12 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  * operations with no return type.
  */
 public interface IfStatVisitor<T> extends ParseTreeVisitor<T> {
+	/**
+	 * Visit a parse tree produced by {@link IfStatParser#prog}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitProg(IfStatParser.ProgContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link IfStatParser#stat}.
 	 * @param ctx the parse tree

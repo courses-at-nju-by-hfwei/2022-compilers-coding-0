@@ -1,4 +1,4 @@
-// Generated from parserllantlr/LRExprPrec.g4 by ANTLR 4.9.2
+// Generated from java-escape by ANTLR 4.11.1
 
     package parserllantlr;
 
@@ -11,15 +11,15 @@ import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.misc.*;
 
-@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
+@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue"})
 public class LRExprPrecLexer extends Lexer {
-	static { RuntimeMetaData.checkVersion("4.9.2", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.11.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, T__2=3, ID=4, INT=5, WS=6;
+		SEMI=1, MUL=2, ADD=3, ID=4, INT=5, WS=6;
 	public static String[] channelNames = {
 		"DEFAULT_TOKEN_CHANNEL", "HIDDEN"
 	};
@@ -30,7 +30,7 @@ public class LRExprPrecLexer extends Lexer {
 
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"T__0", "T__1", "T__2", "ID", "LETTER", "INT", "WS"
+			"SEMI", "MUL", "ADD", "ID", "LETTER", "INT", "WS"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -43,7 +43,7 @@ public class LRExprPrecLexer extends Lexer {
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, null, null, "ID", "INT", "WS"
+			null, "SEMI", "MUL", "ADD", "ID", "INT", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -105,21 +105,40 @@ public class LRExprPrecLexer extends Lexer {
 	public ATN getATN() { return _ATN; }
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\2\b\62\b\1\4\2\t\2"+
-		"\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\3\2\3\2\3\3\3\3\3\4\3"+
-		"\4\3\5\3\5\3\5\7\5\33\n\5\f\5\16\5\36\13\5\3\6\3\6\3\7\3\7\3\7\7\7%\n"+
-		"\7\f\7\16\7(\13\7\5\7*\n\7\3\b\6\b-\n\b\r\b\16\b.\3\b\3\b\2\2\t\3\3\5"+
-		"\4\7\5\t\6\13\2\r\7\17\b\3\2\6\3\2\62;\4\2C\\c|\3\2\63;\5\2\13\f\17\17"+
-		"\"\"\2\65\2\3\3\2\2\2\2\5\3\2\2\2\2\7\3\2\2\2\2\t\3\2\2\2\2\r\3\2\2\2"+
-		"\2\17\3\2\2\2\3\21\3\2\2\2\5\23\3\2\2\2\7\25\3\2\2\2\t\27\3\2\2\2\13\37"+
-		"\3\2\2\2\r)\3\2\2\2\17,\3\2\2\2\21\22\7=\2\2\22\4\3\2\2\2\23\24\7,\2\2"+
-		"\24\6\3\2\2\2\25\26\7-\2\2\26\b\3\2\2\2\27\34\5\13\6\2\30\33\5\13\6\2"+
-		"\31\33\t\2\2\2\32\30\3\2\2\2\32\31\3\2\2\2\33\36\3\2\2\2\34\32\3\2\2\2"+
-		"\34\35\3\2\2\2\35\n\3\2\2\2\36\34\3\2\2\2\37 \t\3\2\2 \f\3\2\2\2!*\7\62"+
-		"\2\2\"&\t\4\2\2#%\t\2\2\2$#\3\2\2\2%(\3\2\2\2&$\3\2\2\2&\'\3\2\2\2\'*"+
-		"\3\2\2\2(&\3\2\2\2)!\3\2\2\2)\"\3\2\2\2*\16\3\2\2\2+-\t\5\2\2,+\3\2\2"+
-		"\2-.\3\2\2\2.,\3\2\2\2./\3\2\2\2/\60\3\2\2\2\60\61\b\b\2\2\61\20\3\2\2"+
-		"\2\b\2\32\34&).\3\b\2\2";
+		"\u0004\u0000\u00060\u0006\uffff\uffff\u0002\u0000\u0007\u0000\u0002\u0001"+
+		"\u0007\u0001\u0002\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004"+
+		"\u0007\u0004\u0002\u0005\u0007\u0005\u0002\u0006\u0007\u0006\u0001\u0000"+
+		"\u0001\u0000\u0001\u0001\u0001\u0001\u0001\u0002\u0001\u0002\u0001\u0003"+
+		"\u0001\u0003\u0001\u0003\u0005\u0003\u0019\b\u0003\n\u0003\f\u0003\u001c"+
+		"\t\u0003\u0001\u0004\u0001\u0004\u0001\u0005\u0001\u0005\u0001\u0005\u0005"+
+		"\u0005#\b\u0005\n\u0005\f\u0005&\t\u0005\u0003\u0005(\b\u0005\u0001\u0006"+
+		"\u0004\u0006+\b\u0006\u000b\u0006\f\u0006,\u0001\u0006\u0001\u0006\u0000"+
+		"\u0000\u0007\u0001\u0001\u0003\u0002\u0005\u0003\u0007\u0004\t\u0000\u000b"+
+		"\u0005\r\u0006\u0001\u0000\u0004\u0001\u000009\u0002\u0000AZaz\u0001\u0000"+
+		"19\u0003\u0000\t\n\r\r  3\u0000\u0001\u0001\u0000\u0000\u0000\u0000\u0003"+
+		"\u0001\u0000\u0000\u0000\u0000\u0005\u0001\u0000\u0000\u0000\u0000\u0007"+
+		"\u0001\u0000\u0000\u0000\u0000\u000b\u0001\u0000\u0000\u0000\u0000\r\u0001"+
+		"\u0000\u0000\u0000\u0001\u000f\u0001\u0000\u0000\u0000\u0003\u0011\u0001"+
+		"\u0000\u0000\u0000\u0005\u0013\u0001\u0000\u0000\u0000\u0007\u0015\u0001"+
+		"\u0000\u0000\u0000\t\u001d\u0001\u0000\u0000\u0000\u000b\'\u0001\u0000"+
+		"\u0000\u0000\r*\u0001\u0000\u0000\u0000\u000f\u0010\u0005;\u0000\u0000"+
+		"\u0010\u0002\u0001\u0000\u0000\u0000\u0011\u0012\u0005*\u0000\u0000\u0012"+
+		"\u0004\u0001\u0000\u0000\u0000\u0013\u0014\u0005+\u0000\u0000\u0014\u0006"+
+		"\u0001\u0000\u0000\u0000\u0015\u001a\u0003\t\u0004\u0000\u0016\u0019\u0003"+
+		"\t\u0004\u0000\u0017\u0019\u0007\u0000\u0000\u0000\u0018\u0016\u0001\u0000"+
+		"\u0000\u0000\u0018\u0017\u0001\u0000\u0000\u0000\u0019\u001c\u0001\u0000"+
+		"\u0000\u0000\u001a\u0018\u0001\u0000\u0000\u0000\u001a\u001b\u0001\u0000"+
+		"\u0000\u0000\u001b\b\u0001\u0000\u0000\u0000\u001c\u001a\u0001\u0000\u0000"+
+		"\u0000\u001d\u001e\u0007\u0001\u0000\u0000\u001e\n\u0001\u0000\u0000\u0000"+
+		"\u001f(\u00050\u0000\u0000 $\u0007\u0002\u0000\u0000!#\u0007\u0000\u0000"+
+		"\u0000\"!\u0001\u0000\u0000\u0000#&\u0001\u0000\u0000\u0000$\"\u0001\u0000"+
+		"\u0000\u0000$%\u0001\u0000\u0000\u0000%(\u0001\u0000\u0000\u0000&$\u0001"+
+		"\u0000\u0000\u0000\'\u001f\u0001\u0000\u0000\u0000\' \u0001\u0000\u0000"+
+		"\u0000(\f\u0001\u0000\u0000\u0000)+\u0007\u0003\u0000\u0000*)\u0001\u0000"+
+		"\u0000\u0000+,\u0001\u0000\u0000\u0000,*\u0001\u0000\u0000\u0000,-\u0001"+
+		"\u0000\u0000\u0000-.\u0001\u0000\u0000\u0000./\u0006\u0006\u0000\u0000"+
+		"/\u000e\u0001\u0000\u0000\u0000\u0006\u0000\u0018\u001a$\',\u0001\u0006"+
+		"\u0000\u0000";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
