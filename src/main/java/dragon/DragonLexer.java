@@ -14,7 +14,7 @@ public class DragonLexer extends Lexer {
     }
 
     if (Character.isWhitespace(peek)) {
-      WS();
+      return WS();
     }
 
     if (Character.isLetter(peek)) {

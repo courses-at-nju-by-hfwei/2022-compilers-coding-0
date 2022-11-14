@@ -26,7 +26,7 @@ public class DragonLexerTest {
   public void testNextToken() {
     Token token = lexer.nextToken();
 
-    while (token != Token.EOF && token != Token.WS) {
+    while (token != Token.EOF) {
       System.out.println(token);
       token = lexer.nextToken();
     }
