@@ -26,19 +26,19 @@ public class DragonLexer extends Lexer {
     }
 
     if (peek == '=') {
-      consume();
+      advance();
       return Token.EQ;
     }
 
     if (peek == '<') {
-      consume();
+      advance();
       if (peek == '=') {
-        consume();
+        advance();
         return Token.LE;
       }
 
       if (peek == '>') {
-        consume();
+        advance();
         return Token.NE;
       }
 
@@ -46,10 +46,10 @@ public class DragonLexer extends Lexer {
     }
 
     if (peek == '>') {
-      consume();
+      advance();
 
       if (peek == '=') {
-        consume();
+        advance();
         return Token.GE;
       }
 
@@ -57,13 +57,13 @@ public class DragonLexer extends Lexer {
     }
 
     Token unknown = new Token(TokenType.UNKNOWN, Character.toString(peek));
-    consume();
+    advance();
     return unknown;
   }
 
   private Token WS() {
     while (Character.isWhitespace(this.peek)) {
-      consume();
+      advance();
     }
 
     return Token.WS;
@@ -74,7 +74,7 @@ public class DragonLexer extends Lexer {
 
     do {
       sb.append(peek);
-      consume();
+      advance();
     } while (Character.isLetterOrDigit(peek));
 
     Token token = this.kwTable.getKeyword(sb.toString());
@@ -90,7 +90,7 @@ public class DragonLexer extends Lexer {
 
     do {
       sb.append(peek);
-      consume();
+      advance();
     } while (Character.isDigit(peek));
 
     return new Token(TokenType.INT, sb.toString());
@@ -99,7 +99,7 @@ public class DragonLexer extends Lexer {
   private Token NUMBER() {
     StringBuilder intStr = new StringBuilder();
     intStr.append(peek);
-    consume();
+    advance();
 
     int intPos = -1;
     int realPos = -1;
@@ -114,16 +114,17 @@ public class DragonLexer extends Lexer {
           intPos = pos;
           if (Character.isDigit(peek)) {
             intStr.append(peek);
-            consume();
+            advance();
             state = 13;
             break;
           } else if (peek == '.') {
             realStr.append(peek);
-            consume();
+            advance();
             state = 14;
+            break;
           } else if (peek == 'E' || peek == 'e') {
             sciStr.append(peek);
-            consume();
+            advance();
             state = 16;
             break;
           } else {
@@ -132,7 +133,7 @@ public class DragonLexer extends Lexer {
         case 14:
           if (Character.isDigit(peek)) {
             realStr.append(peek);
-            consume();
+            advance();
             state = 15;
             break;
           } else {
@@ -143,12 +144,12 @@ public class DragonLexer extends Lexer {
           realPos = pos;
           if (Character.isDigit(peek)) {
             realStr.append(peek);
-            consume();
+            advance();
             state = 15;
             break;
           } else if (peek == 'E') {
             sciStr.append(peek);
-            consume();
+            advance();
             state = 16;
             break;
           } else {
@@ -157,12 +158,12 @@ public class DragonLexer extends Lexer {
         case 16:
           if (peek == '+' || peek == '-') {
             sciStr.append(peek);
-            consume();
+            advance();
             state = 17;
             break;
           } else if (Character.isDigit(peek)) {
             sciStr.append(peek);
-            consume();
+            advance();
             state = 18;
             break;
           } else {
@@ -172,7 +173,7 @@ public class DragonLexer extends Lexer {
         case 17:
           if (Character.isDigit(peek)) {
             sciStr.append(peek);
-            consume();
+            advance();
             state = 18;
             break;
           } else {
@@ -182,7 +183,7 @@ public class DragonLexer extends Lexer {
         case 18:
           if (Character.isDigit(peek)) {
             sciStr.append(peek);
-            consume();
+            advance();
             state = 18;
             break;
           } else {

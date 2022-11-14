@@ -15,17 +15,17 @@ public abstract class Lexer {
 
   public abstract Token nextToken();
 
-  public void reset(int pos) {
-    this.pos = pos;
-    this.peek = input.charAt(pos);
-  }
-
-  public void consume() {
+  public void advance() {
     this.pos++;
     if (this.pos >= this.input.length()) {
       this.peek = EOF;
     } else {
       this.peek = input.charAt(this.pos);
     }
+  }
+
+  public void reset(int pos) {
+    this.pos = pos;
+    this.peek = input.charAt(pos);
   }
 }
