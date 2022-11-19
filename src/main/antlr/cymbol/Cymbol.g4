@@ -11,14 +11,14 @@ grammar Cymbol;
 package cymbol;
 }
 
-prog : (varDecl | functionDecl)+ EOF
+prog : (varDecl | functionDecl)* EOF
      ;
 
 varDecl :   type ID ('=' expr)? ';'
         ;
 
 type : 'int'
-     | 'float'
+     | 'double'
      | 'void'
      ;
 
@@ -35,27 +35,22 @@ block : '{' stat* '}' ;
 
 stat : block
      | varDecl
-     | 'if' expr stat ('else' stat)?
-     | 'while' expr stat
-     | 'for' '(' expr? ';' expr? ';' expr? ')' stat
+     | 'if' expr 'then' stat ('else' stat)? // TODO: priority?
      | 'return' expr? ';'
      | expr '=' expr ';'
      | expr ';'
      ;
 
-expr: '(' expr ')'
-    | ID '(' exprList? ')'    // function call
-    | expr '[' expr ']'       // array subscripts
-    | '-' expr                // right association
-    | '!' expr                // right association
-    | <assoc=right> expr '^' expr
-    | expr ('*'|'/') expr
-    | expr ('+'|'-') expr
-    | expr ('<' | '<=' | '>' | '>=') expr
-    | expr ('==' | '!=') expr
-    | expr ('&&' | '||') expr
-    | ID
-    | INT
+expr: ID '(' exprList? ')'    # Call // function call
+    | expr '[' expr ']'       # Index // array subscripts
+    | '-' expr                # Negate // right association
+    | '!' expr                # Not // right association
+    | expr ('*'|'/') expr     # MultDiv
+    | expr ('+'|'-') expr     # AddSub
+    | expr ('==' | '!=') expr # EQNE
+    | '(' expr ')'            # Parens
+    | ID                      # Id
+    | INT                     # Int
     ;
 
 exprList : expr (',' expr)* ;
@@ -65,46 +60,39 @@ exprList : expr (',' expr)* ;
 // the following lexer rules for literals in the grammar above.
 // Note: Remember to rename the automatically generated 'INT' to avoid clash.
 
-EQUAL : '=' ;
 SEMI : ';' ;
+COMMA : ',' ;
 LPAREN : '(' ;
 RPAREN : ')' ;
-COMMA : ',' ;
-LBRACE : '{' ;
-RBRACE : '}' ;
-IF : 'if' ;
-ELSE : 'else' ;
-WHILE : 'while' ;
-FOR : 'for' ;
-RETURN : 'return' ;
-INTTYPE : 'int' ;
-FLOATTYPE : 'float' ;
-VOIDTYPE : 'void' ;
 LBRACK : '[' ;
 RBRACK : ']' ;
+LBRACE : '{' ;
+RBRACE : '}' ;
+
+IF : 'if' ;
+THEN : 'then' ;
+ELSE : 'else' ;
+RETURN : 'return' ;
+
+INTTYPE : 'int' ;
+DOUBLETYPE : 'double' ;
+VOIDTYPE : 'void' ;
+
+ADD : '+' ;
 SUB : '-' ;
-LNOT : '!' ;
-POWER : '^' ;
 MUL : '*' ;
 DIV : '/' ;
-ADD : '+' ;
-LT : '<' ;
-LE : '<=' ;
-GT : '>' ;
-GE : '>=' ;
-EQUAL_EQUAL : '==' ;
-NOT_EQUAL : '!=' ;
-LAND : '&&' ;
-LOR : '||' ;
+
+EQ : '=' ;
+NE : '!=' ;
+EE : '==' ;
 ////////////////////////////////////////////
 
-ID : LETTER (LETTER | [0-9])* ;
-fragment
-LETTER : [a-zA-Z] ;
-
+ID : LETTER (LETTER | DIGIT)* ;
 INT : [0-9]+ ;
 
 WS  : [ \t\n\r]+ -> skip ;
+SL_COMMENT : '//' .*? '\n' -> skip ;
 
-SL_COMMENT : '//' .*? '\n' -> channel(HIDDEN)
-           ;
+fragment LETTER : [a-zA-Z] ;
+fragment DIGIT : [0-9] ;

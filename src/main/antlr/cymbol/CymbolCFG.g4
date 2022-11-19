@@ -1,7 +1,7 @@
 grammar CymbolCFG;
 
 @header {
-package cymbolcfg;
+package cymbol.cfg;
 }
 
 prog : prog decl
@@ -12,5 +12,12 @@ decl : varDecl
      | funcDecl
      ;
 
-varDecl : ' ' ;     // just for placeholder
-funcDecl : ' ' ;    // just for placeholder
+varDecl : type ID
+        | type ID '=' expr
+        ;
+
+type : 'int' | 'double' | 'void' ;
+
+expr : ID ;
+
+funcDecl : ' ' ;
