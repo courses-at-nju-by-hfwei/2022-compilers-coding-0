@@ -1,4 +1,4 @@
-package cymbol.listeners;
+package cymbol.callgraph;
 
 import org.antlr.v4.runtime.misc.MultiMap;
 import org.antlr.v4.runtime.misc.OrderedHashSet;

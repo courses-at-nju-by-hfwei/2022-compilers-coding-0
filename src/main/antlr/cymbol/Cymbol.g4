@@ -43,11 +43,11 @@ stat : block
 
 expr: ID '(' exprList? ')'    # Call // function call
     | expr '[' expr ']'       # Index // array subscripts
-    | '-' expr                # Negate // right association
-    | '!' expr                # Not // right association
-    | expr ('*'|'/') expr     # MultDiv
-    | expr ('+'|'-') expr     # AddSub
-    | expr ('==' | '!=') expr # EQNE
+    | op = '-' expr                # Negate // right association
+    | op = '!' expr                # Not // right association
+    | lhs = expr (op = '*'| op = '/') rhs = expr     # MultDiv
+    | lhs = expr (op = '+'| op = '-') rhs = expr     # AddSub
+    | lhs = expr (op = '==' | op = '!=') rhs = expr  # EQNE
     | '(' expr ')'            # Parens
     | ID                      # Id
     | INT                     # Int
