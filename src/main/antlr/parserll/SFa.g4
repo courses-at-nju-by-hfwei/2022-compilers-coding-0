@@ -1,7 +1,7 @@
 grammar SFa;
 
 @header {
-    package parserll;
+package parserll;
 }
 
 s : f

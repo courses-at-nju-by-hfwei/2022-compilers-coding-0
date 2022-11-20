@@ -1,13 +1,14 @@
-grammar LRExpr;
+grammar LRExprParen;
 
 @header {
-    package parserllantlr;
+package expr.precedence;
 }
 
 stat : expr ';' EOF;
 
 expr : expr '*' expr
      | expr '+' expr
+     | '(' expr ')'
      | INT
      | ID
      ;

@@ -4,7 +4,7 @@ grammar LRExprPrec;
 // Test with command line (remember to comment out the following @header line).
 
 @header {
-    package parserllantlr;
+package expr.precedence;
 }
 
 stat : expr[0] ';' EOF;

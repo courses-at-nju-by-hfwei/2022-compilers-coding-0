@@ -11,31 +11,23 @@ grammar Cymbol;
 package cymbol;
 }
 
-prog : (varDecl | functionDecl)* EOF
-     ;
+prog : (varDecl | functionDecl)* EOF ;
 
-varDecl :   type ID ('=' expr)? ';'
-        ;
+varDecl : type ID ('=' expr)? ';' ;
 
-type : 'int'
-     | 'double'
-     | 'void'
-     ;
+type : 'int' | 'double' | 'void' ;
 
-functionDecl : type ID '(' formalParameters? ')' block
-             ;
+functionDecl : type ID '(' formalParameters? ')' block ;
 
-formalParameters : formalParameter (',' formalParameter)*
-                 ;
+formalParameters : formalParameter (',' formalParameter)* ;
 
-formalParameter : type ID
-                ;
+formalParameter : type ID ;
 
 block : '{' stat* '}' ;
 
 stat : block
      | varDecl
-     | 'if' expr 'then' stat ('else' stat)? // TODO: priority?
+     | 'if' expr 'then' stat ('else' stat)?
      | 'return' expr? ';'
      | expr '=' expr ';'
      | expr ';'
@@ -45,6 +37,7 @@ expr: ID '(' exprList? ')'    # Call // function call
     | expr '[' expr ']'       # Index // array subscripts
     | op = '-' expr                # Negate // right association
     | op = '!' expr                # Not // right association
+    | <assoc = right> expr '^' expr # Power
     | lhs = expr (op = '*'| op = '/') rhs = expr     # MultDiv
     | lhs = expr (op = '+'| op = '-') rhs = expr     # AddSub
     | lhs = expr (op = '==' | op = '!=') rhs = expr  # EQNE
@@ -54,11 +47,10 @@ expr: ID '(' exprList? ')'    # Call // function call
     ;
 
 exprList : expr (',' expr)* ;
-
 ////////////////////////////////////////////
 // You can use "Alt + Insert" to automatically generate
 // the following lexer rules for literals in the grammar above.
-// Note: Remember to rename the automatically generated 'INT' to avoid clash.
+// Remember to check and modify them if necessary.
 
 SEMI : ';' ;
 COMMA : ',' ;
@@ -87,12 +79,11 @@ EQ : '=' ;
 NE : '!=' ;
 EE : '==' ;
 ////////////////////////////////////////////
-
-ID : LETTER (LETTER | DIGIT)* ;
-INT : [0-9]+ ;
-
 WS  : [ \t\n\r]+ -> skip ;
 SL_COMMENT : '//' .*? '\n' -> skip ;
+
+ID : LETTER (LETTER | DIGIT)* ;
+INT : DIGIT+ ;
 
 fragment LETTER : [a-zA-Z] ;
 fragment DIGIT : [0-9] ;
