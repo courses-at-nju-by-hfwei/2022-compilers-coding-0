@@ -5,20 +5,17 @@ grammar ExprLR;
 package expr;
 }
 
-expr : expr ('+'|'-') term
+prog : expr EOF ;
+
+expr : expr '+' term
      | term
      ;
 
-term : term ('*' | '/') factor
+term : term '*' factor
      | factor
      ;
 
-factor : '(' expr ')'
-       | ID
-       ;
-
-ID : LETTER (LETTER | DIGIT)* ;
-fragment DIGIT : [0-9] ;
-fragment LETTER : [a-zA-Z] ;
+factor : DIGIT ;
+DIGIT : [0-9] ;
 
 WS  : [ \t\n\r]+ -> skip ;

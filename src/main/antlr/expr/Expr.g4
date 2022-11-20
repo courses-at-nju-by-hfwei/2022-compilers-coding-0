@@ -4,16 +4,14 @@ grammar Expr;
 package expr;
 }
 
-expr : '-' expr
-  | <assoc = right> expr '^' expr
-  | expr ('*' | '/') expr
-  | expr ('+' | '-') expr
-  | '(' expr ')'
-  | ID
+prog : expr EOF ;
+
+expr :
+  | expr '*' expr
+  | expr '+' expr
+  | DIGIT
   ;
 
-ID : LETTER (LETTER | DIGIT)* ;
-fragment DIGIT : [0-9] ;
-fragment LETTER : [a-zA-Z] ;
+DIGIT : [0-9] ;
 
 WS  : [ \t\n\r]+ -> skip ;

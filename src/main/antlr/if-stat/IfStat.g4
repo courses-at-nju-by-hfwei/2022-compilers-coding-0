@@ -8,16 +8,15 @@ prog : stat EOF ;
 
 stat : 'if' expr 'then' stat
      | 'if' expr 'then' stat 'else' stat
+     | expr
      ;
 
 // The following stat rule using '?' also works as expected.
 //stat : 'if' expr 'then' stat ('else' stat)? ;
+//     | expr
 //     ;
 
 expr : ID ;
 
-ID : LETTER (LETTER | DIGIT)* ;
-fragment DIGIT : [0-9] ;
-fragment LETTER : [a-zA-Z] ;
-
-WS  : [ \t\n\r]+ -> skip ;
+ID : [a-z]+ ;
+WS : [ \t\n\r]+ -> skip ;
