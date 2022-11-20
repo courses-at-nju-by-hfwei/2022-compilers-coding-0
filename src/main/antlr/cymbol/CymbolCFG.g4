@@ -16,8 +16,10 @@ varDecl : type ID
         | type ID '=' expr
         ;
 
+funcDecl : ' ' ;
+
 type : 'int' | 'double' | 'void' ;
 
 expr : ID ;
 
-funcDecl : ' ' ;
+ID : [a-z]+ ;
