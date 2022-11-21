@@ -14,4 +14,4 @@ expr :
 
 DIGIT : [0-9] ;
 
-WS  : [ \t\n\r]+ -> skip ;
+WS : [ \t\n\r]+ -> skip ;

@@ -18,5 +18,5 @@ open_stat: 'if' expr 'then' stat
 
 expr : ID ;
 
-ID : [a-z]+ ;
-WS  : [ \t\n\r]+ -> skip ;
+ID : [a-z] ;
+WS : [ \t\n\r]+ -> skip ;

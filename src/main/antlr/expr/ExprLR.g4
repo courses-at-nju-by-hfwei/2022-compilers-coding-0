@@ -15,7 +15,10 @@ term : term '*' factor
      | factor
      ;
 
+//expr : term ('+' term)* ;
+//term : factor ('*' factor)* ;
+
 factor : DIGIT ;
 DIGIT : [0-9] ;
 
-WS  : [ \t\n\r]+ -> skip ;
+WS : [ \t\n\r]+ -> skip ;

@@ -18,5 +18,5 @@ stat : 'if' expr 'then' stat
 
 expr : ID ;
 
-ID : [a-z]+ ;
+ID : [a-z] ;
 WS : [ \t\n\r]+ -> skip ;

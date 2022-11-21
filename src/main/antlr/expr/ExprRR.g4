@@ -22,4 +22,4 @@ term_prime : '*' factor term_prime
 factor : DIGIT ;
 DIGIT : [0-9] ;
 
-WS  : [ \t\n\r]+ -> skip ;
+WS : [ \t\n\r]+ -> skip ;
