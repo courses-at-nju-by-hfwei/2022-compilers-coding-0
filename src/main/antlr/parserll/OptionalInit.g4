@@ -1,28 +1,19 @@
 grammar OptionalInit;
 
 @header {
-    package parserll;
+package parserll.optionalinit;
 }
 
-optional_init
-    : '=' expr  # Init
-    |           # NoInit
-    ;
+prog : func_call | decl EOF;
 
-expr : ID;  // just a placeholder
-
+func_call : ID '(' arg ')' ;
 decl : 'int' ID optional_init ';' ;
 
 arg : 'int' ID optional_init ;
+optional_init
+    : '=' ID  # Init
+    |         # NoInit
+    ;
 
-func_call : ID '(' arg ')' ;
-
-ASSIGN : '=' ;
-LPAREN : '(' ;
-RPAREN : ')' ;
-INT : 'int' ;
-
-ID : LETTER (LETTER | [0-9])* ;
-fragment LETTER : [a-zA-Z] ;
-
-WS  : [ \t\n\r]+ -> skip ;
+ID : [a-z];
+WS : [ \t\n\r]+ -> skip ;

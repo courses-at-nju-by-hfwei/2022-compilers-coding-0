@@ -25,18 +25,18 @@ formalParameter : type ID ;
 
 block : '{' stat* '}' ;
 
-stat : block
-     | varDecl
-     | 'if' expr 'then' stat ('else' stat)?
-     | 'return' expr? ';'
-     | expr '=' expr ';'
-     | expr ';'
+stat : block                                # BlockStat
+     | varDecl                              # VarDeclStat
+     | 'if' expr 'then' stat ('else' stat)? # IfStat
+     | 'return' expr? ';'                   # ReturnStat
+     | expr '=' expr ';'                    # AssignStat
+     | expr ';'                             # ExprStat
      ;
 
 expr: ID '(' exprList? ')'    # Call // function call
     | expr '[' expr ']'       # Index // array subscripts
-    | op = '-' expr                # Negate // right association
-    | op = '!' expr                # Not // right association
+    | op = '-' expr           # Negate // right association
+    | op = '!' expr           # Not // right association
     | <assoc = right> expr '^' expr # Power
     | lhs = expr (op = '*'| op = '/') rhs = expr     # MultDiv
     | lhs = expr (op = '+'| op = '-') rhs = expr     # AddSub

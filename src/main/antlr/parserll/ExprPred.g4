@@ -1,7 +1,7 @@
 grammar ExprPred;
 
 @header {
-package parserll.predicates;
+package parserll.exprpred;
 }
 
 // T(6) maybe a function call (if T is a function name)

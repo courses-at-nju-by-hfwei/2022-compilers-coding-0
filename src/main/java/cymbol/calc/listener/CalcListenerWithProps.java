@@ -9,10 +9,15 @@ import cymbol.CymbolBaseListener;
 import cymbol.CymbolParser;
 
 public class CalcListenerWithProps extends CymbolBaseListener {
-  private ParseTreeProperty<Integer> values = new ParseTreeProperty<>();
+  private final ParseTreeProperty<Integer> values = new ParseTreeProperty<>();
 
   public ParseTreeProperty<Integer> getValues() {
     return values;
+  }
+
+  @Override
+  public void exitExprStat(CymbolParser.ExprStatContext ctx) {
+    System.out.println("Result = " + values.get(ctx.expr()));
   }
 
   @Override
