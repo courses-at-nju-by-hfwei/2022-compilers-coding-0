@@ -4,7 +4,7 @@ grammar LRExprPrec;
 // Test with command line (remember to comment out the following @header line).
 
 @header {
-package expr.precedence;
+package parser.allstar.exprprec;
 }
 
 stat : expr[0] ';' EOF;
@@ -18,13 +18,6 @@ expr[int _p]
       )*
     ;
 
-SEMI : ';' ;
-MUL : '*' ;
-ADD : '+' ;
-
-ID : LETTER (LETTER | [0-9])* ;
-fragment LETTER : [a-zA-Z] ;
-
-INT : '0' | ([1-9] [0-9]*) ;
-
+ID : [a-z] ;
+INT : [0-9] ;
 WS  : [ \t\n\r]+ -> skip ;
