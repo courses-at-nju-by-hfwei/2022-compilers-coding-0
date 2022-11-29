@@ -5,11 +5,8 @@ package parser.backtrack;
 }
 
 // [a, b = c, [d, [e = f]]]
+stat : (list | assign) EOF ;
 // [a, b = c] = [d, [e = f]]
-stat : list EOF
-     | assign EOF
-     ;
-
 assign : list '=' list ;
 
 list : '[' elements ']' ;
@@ -18,6 +15,11 @@ element : ID '=' ID
         | ID
         | list
         ;
+
+LBRACK : '[' ;
+RBRACK : ']' ;
+COMMA : ',' ;
+ASSIGN : '=' ;
 
 ID : [a-z] ;
 WS : [ \t\n\r]+ -> skip ;

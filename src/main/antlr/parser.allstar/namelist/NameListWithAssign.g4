@@ -12,5 +12,10 @@ element  : ID '=' ID
          | list
          ;
 
+LBRACK : '[' ;
+RBRACK : ']' ;
+COMMA : ',' ;
+ASSIGN : '=' ;
+
 ID : [a-z] ;
 WS : [ \t\n\r]+ -> skip ;

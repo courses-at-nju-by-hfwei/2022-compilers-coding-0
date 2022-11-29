@@ -1,13 +1,12 @@
 grammar Class;
 
 @header {
-package classdef;
+package parser.allstar.error;
 }
 
 prog : classDef+ ;
 
-classDef : 'class' ID '{' member+ '}'
-         ;
+classDef : 'class' ID '{' member+ '}' ;
 
 member
     :   'int' ID ';'
@@ -22,6 +21,6 @@ expr:   INT
     |   ID '(' INT ')'
     ;
 
-INT :   [0-9]+ ;
-ID  :   [a-zA-Z]+ ;
-WS  :   [ \t\r\n]+ -> skip ;
+INT :  [0-9]+ ;
+ID  :  [a-zA-Z]+ ;
+WS  :  [ \t\r\n]+ -> skip ;

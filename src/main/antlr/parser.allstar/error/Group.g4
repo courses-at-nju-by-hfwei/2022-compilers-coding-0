@@ -1,11 +1,11 @@
 grammar Group;
 
 @header {
-package group;
+package parser.allstar.error;
 }
 
-// [i^2]
-// []: following set {'^', ']'}
+// [i^2]: correct input
+// []: wrong input; the following set is {'^', ']'}
 group : '[' expr ']'
       | '(' expr ')'
       ;
