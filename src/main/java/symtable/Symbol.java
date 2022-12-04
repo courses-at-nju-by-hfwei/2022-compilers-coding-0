@@ -1,8 +1,10 @@
 package symtable;
 
+import com.google.common.base.MoreObjects;
+
 public class Symbol {
-  private final String name;
-  private final Type type;
+  final String name;
+  final Type type;
 
   public Symbol(String name, Type type) {
     this.name = name;
@@ -15,5 +17,12 @@ public class Symbol {
 
   public Type getType() {
     return type;
+  }
+
+  public String toString() {
+    return MoreObjects.toStringHelper(this)
+        .add("name", name)
+        .add("type", type)
+        .toString();
   }
 }

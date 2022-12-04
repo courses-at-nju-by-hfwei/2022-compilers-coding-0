@@ -1,2 +1,3 @@
 int i = 9;
-int k = i + 2;
+int j = i + 2;
+int kk = ii + jj;

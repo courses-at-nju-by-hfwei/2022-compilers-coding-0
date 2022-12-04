@@ -28,18 +28,30 @@ public class BaseScope implements Scope {
   @Override
   public void define(Symbol symbol) {
     symbols.put(symbol.getName(), symbol);
+    System.out.println("+" + symbol.toString());
   }
 
   @Override
   public Symbol resolve(String name) {
+    Symbol symbol = symbols.get(name);
+    if (symbol != null) {
+      System.out.println("*" + symbol.toString());
+      return symbol;
+    }
+
+    if (enclosingScope != null) {
+      return enclosingScope.resolve(name);
+    }
+
+    System.err.println("Cannot find " + name);
     return null;
   }
 
   @Override
   public String toString() {
     return MoreObjects.toStringHelper(this)
-        .add("name", this.name)
-        .add("symbols", this.symbols.toString())
+        .add("name", name)
+        .add("symbols", symbols.values().toString())
         .toString();
   }
 }

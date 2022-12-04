@@ -1,5 +1,4 @@
 package symtable;
 
-public enum Type {
-  INT, DOUBLE;
+public interface Type {
 }

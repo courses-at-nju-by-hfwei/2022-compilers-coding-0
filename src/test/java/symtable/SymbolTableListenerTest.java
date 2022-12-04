@@ -17,7 +17,7 @@ import java.nio.file.Path;
 import cymbol.CymbolLexer;
 import cymbol.CymbolParser;
 
-public class DefPhaseListenerTest {
+public class SymbolTableListenerTest {
   InputStream is = System.in;
 
   @BeforeMethod
@@ -39,7 +39,7 @@ public class DefPhaseListenerTest {
     ParseTree tree = parser.prog();
 
     ParseTreeWalker walker = new ParseTreeWalker();
-    DefPhaseListener def = new DefPhaseListener();
+    SymbolTableListener def = new SymbolTableListener();
     walker.walk(def, tree);
   }
 }
