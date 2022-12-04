@@ -4,22 +4,20 @@ import cymbol.CymbolBaseListener;
 import cymbol.CymbolParser;
 
 public class SymbolTableListener extends CymbolBaseListener {
+  private final SymbolTableTreeGraph graph = new SymbolTableTreeGraph();
   private GlobalScope globalScope = null;
   private Scope currentScope = null;
-
-  private SymbolTableTreeGraph graph = new SymbolTableTreeGraph();
   private int localScopeCounter = 0;
 
   @Override
   public void enterProg(CymbolParser.ProgContext ctx) {
     globalScope = new GlobalScope(null);
-    graph.addNode(graph.toDot(globalScope));
     currentScope = globalScope;
   }
 
   @Override
   public void exitProg(CymbolParser.ProgContext ctx) {
-//    System.out.println(scopes.get(ctx));
+    graph.addNode(SymbolTableTreeGraph.toDot(currentScope));
   }
 
   @Override
@@ -46,7 +44,6 @@ public class SymbolTableListener extends CymbolBaseListener {
     String funcName = ctx.ID().getText();
 
     FunctionSymbol func = new FunctionSymbol(funcName, currentScope);
-    graph.addNode(graph.toDot(func));
     graph.addEdge(funcName, currentScope.getName());
 
     currentScope.define(func);
@@ -55,6 +52,7 @@ public class SymbolTableListener extends CymbolBaseListener {
 
   @Override
   public void exitFunctionDecl(CymbolParser.FunctionDeclContext ctx) {
+    graph.addNode(SymbolTableTreeGraph.toDot(currentScope));
     currentScope = currentScope.getEnclosingScope();
   }
 
@@ -76,7 +74,7 @@ public class SymbolTableListener extends CymbolBaseListener {
     String localScopeName = localScope.getName() + localScopeCounter;
     localScope.setName(localScopeName);
     localScopeCounter++;
-    graph.addNode(graph.toDot(localScope));
+
     graph.addEdge(localScopeName, currentScope.getName());
 
     currentScope = localScope;
@@ -84,6 +82,7 @@ public class SymbolTableListener extends CymbolBaseListener {
 
   @Override
   public void exitBlock(CymbolParser.BlockContext ctx) {
+    graph.addNode(SymbolTableTreeGraph.toDot(currentScope));
     currentScope = currentScope.getEnclosingScope();
   }
 
