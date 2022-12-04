@@ -17,9 +17,18 @@ stat:   expr ';'
     |   ID '=' expr ';'
     ;
 
-expr:   INT 
+expr:   INT
     |   ID '(' INT ')'
     ;
+
+CLASS : 'class' ;
+LBRACE : '{' ;
+RBRACE : '}' ;
+INTTYPE : 'int' ;
+SEMI : ';' ;
+LPAREN : '(' ;
+RPAREN : ')' ;
+ASSIGN : '=' ;
 
 INT :  [0-9]+ ;
 ID  :  [a-zA-Z]+ ;
