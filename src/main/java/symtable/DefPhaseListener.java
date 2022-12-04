@@ -5,7 +5,7 @@ import org.antlr.v4.runtime.tree.ParseTreeProperty;
 import cymbol.CymbolBaseListener;
 import cymbol.CymbolParser;
 
-public class DefPhase extends CymbolBaseListener {
+public class DefPhaseListener extends CymbolBaseListener {
   private ParseTreeProperty<Scope> scopes = new ParseTreeProperty<>();
   private Scope currentScope = null;
 
