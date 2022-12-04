@@ -4,6 +4,7 @@ import org.antlr.v4.runtime.misc.MultiMap;
 import org.antlr.v4.runtime.misc.OrderedHashSet;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class SymbolTableTreeGraph {
   private final Set<String> nodes = new OrderedHashSet<>();
@@ -17,24 +18,32 @@ public class SymbolTableTreeGraph {
     edges.map(source, target);
   }
 
+  public String toDot(BaseScope scope) {
+    String symbols = scope.getSymbols().values()
+        .stream()
+        .map(Symbol::getName)
+        .collect(Collectors.joining("</TD><TD", "<TR><TD>", "</TD></TR>"));
+
+    return scope.getName() +
+        " [label = <<TABLE BORDER=\"0\" CELLBORDER=\"1\" CELLSPACING=\"0\">" +
+        "<TR>" + scope.getName() + "</TR>" +
+        symbols +
+        "</TABLE>>]";
+  }
+
   public String toDot() {
     StringBuilder buf = new StringBuilder();
 
     buf.append("digraph G {\n")
-        .append("  ranksep = 0.25;\n")
+        .append("  ranksep = 0.25\n")
         .append("  edge [arrowsize = 0.5]\n")
-        .append(" node [shape = rect, fontname = \"ArialNarrow\", fontsize = 12, fixedsize = true, height = 0.50];\n");
+        .append("  node [shape = none]\n\n");
 
-    nodes.forEach(node -> buf.append(node).append("; "));
-    buf.append("\n");
+    buf.append(String.join(";\n", nodes)).append(";\n\n");
 
-    edges.getPairs().forEach(edge ->
-        buf.append(" ")
-            .append(edge.a)
-            .append(" -> ")
-            .append(edge.b)
-            .append(";\n"));
-    buf.append("}\n");
+    buf.append(edges.getPairs().stream()
+        .map(edge -> String.format("%s -> %s", edge.a, edge.b))
+        .collect(Collectors.joining(";\n", "", ";\n"))).append("}");
 
     return buf.toString();
   }

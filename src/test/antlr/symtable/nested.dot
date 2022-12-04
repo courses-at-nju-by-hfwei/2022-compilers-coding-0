@@ -1,11 +1,18 @@
 digraph G {
-  ranksep = 0.25;
+  ranksep = 0.25
   edge [arrowsize = 0.5]
- node [shape = rect, fontname = "ArialNarrow", fontsize = 12, fixedsize = true, height = 0.50];
-GlobalScope; a; LocalScope0; LocalScope1; b; LocalScope2; 
- a -> GlobalScope;
- LocalScope0 -> a;
- LocalScope1 -> LocalScope0;
- b -> GlobalScope;
- LocalScope2 -> b;
+  node [shape = none]
+
+GlobalScope [label = <<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR>GlobalScope</TR><TR><TD>int</TD></TR></TABLE>>];
+a [label = <<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR>a</TR><TR><TD></TD></TR></TABLE>>];
+LocalScope0 [label = <<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR>LocalScope0</TR><TR><TD></TD></TR></TABLE>>];
+LocalScope1 [label = <<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR>LocalScope1</TR><TR><TD></TD></TR></TABLE>>];
+b [label = <<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR>b</TR><TR><TD></TD></TR></TABLE>>];
+LocalScope2 [label = <<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR>LocalScope2</TR><TR><TD></TD></TR></TABLE>>];
+
+a -> GlobalScope;
+LocalScope0 -> a;
+LocalScope1 -> LocalScope0;
+b -> GlobalScope;
+LocalScope2 -> b;
 }

@@ -30,6 +30,10 @@ public class BaseScope implements Scope {
     return this.enclosingScope;
   }
 
+  public Map<String, Symbol> getSymbols() {
+    return this.symbols;
+  }
+
   @Override
   public void define(Symbol symbol) {
     symbols.put(symbol.getName(), symbol);

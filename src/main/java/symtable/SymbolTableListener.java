@@ -13,7 +13,7 @@ public class SymbolTableListener extends CymbolBaseListener {
   @Override
   public void enterProg(CymbolParser.ProgContext ctx) {
     globalScope = new GlobalScope(null);
-    graph.addNode(globalScope.getName());
+    graph.addNode(graph.toDot(globalScope));
     currentScope = globalScope;
   }
 
@@ -46,7 +46,7 @@ public class SymbolTableListener extends CymbolBaseListener {
     String funcName = ctx.ID().getText();
 
     FunctionSymbol func = new FunctionSymbol(funcName, currentScope);
-    graph.addNode(funcName);
+    graph.addNode(graph.toDot(func));
     graph.addEdge(funcName, currentScope.getName());
 
     currentScope.define(func);
@@ -76,7 +76,7 @@ public class SymbolTableListener extends CymbolBaseListener {
     String localScopeName = localScope.getName() + localScopeCounter;
     localScope.setName(localScopeName);
     localScopeCounter++;
-    graph.addNode(localScopeName);
+    graph.addNode(graph.toDot(localScope));
     graph.addEdge(localScopeName, currentScope.getName());
 
     currentScope = localScope;

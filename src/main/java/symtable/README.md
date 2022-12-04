@@ -28,8 +28,10 @@
   - enterFunctionDecl
   - exitFunctionDecl
   - enterBlock
+    - counter for uniqueness
   - exitBlock
   - exitFormalParameter
+- SymbolTableTreeGraph
 
 ## forward reference
 
