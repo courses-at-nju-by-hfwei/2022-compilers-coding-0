@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
 import java.nio.file.Path;
 
 import cymbol.CymbolLexer;
@@ -22,7 +23,7 @@ public class SymbolTableListenerTest {
 
   @BeforeMethod
   public void setUp() throws IOException {
-    is = new FileInputStream(Path.of("src/test/antlr/symtable/monolithic.txt").toFile());
+    is = new FileInputStream(Path.of("src/test/antlr/symtable/nested.txt").toFile());
   }
 
   @AfterMethod
@@ -39,7 +40,10 @@ public class SymbolTableListenerTest {
     ParseTree tree = parser.prog();
 
     ParseTreeWalker walker = new ParseTreeWalker();
-    SymbolTableListener def = new SymbolTableListener();
-    walker.walk(def, tree);
+    SymbolTableListener symtableListener = new SymbolTableListener();
+    walker.walk(symtableListener, tree);
+
+    Path fileName = Path.of("src/test/antlr/symtable/nested.dot");
+    Files.writeString(fileName, symtableListener.getGraph().toDot());
   }
 }

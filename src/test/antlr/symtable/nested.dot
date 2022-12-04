@@ -1,0 +1,11 @@
+digraph G {
+  ranksep = 0.25;
+  edge [arrowsize = 0.5]
+ node [shape = rect, fontname = "ArialNarrow", fontsize = 12, fixedsize = true, height = 0.50];
+GlobalScope; a; LocalScope0; LocalScope1; b; LocalScope2; 
+ a -> GlobalScope;
+ LocalScope0 -> a;
+ LocalScope1 -> LocalScope0;
+ b -> GlobalScope;
+ LocalScope2 -> b;
+}

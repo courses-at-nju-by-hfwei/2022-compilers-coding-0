@@ -6,9 +6,9 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class BaseScope implements Scope {
-  private final String name;
   private final Scope enclosingScope;
   private final Map<String, Symbol> symbols = new LinkedHashMap<>();
+  private String name;
 
   public BaseScope(String name, Scope enclosingScope) {
     this.name = name;
@@ -16,8 +16,13 @@ public class BaseScope implements Scope {
   }
 
   @Override
-  public String getScopeName() {
+  public String getName() {
     return this.name;
+  }
+
+  @Override
+  public void setName(String name) {
+    this.name = name;
   }
 
   @Override

@@ -19,12 +19,17 @@
 ## nested
 
 - Symbol
-  - VariableSymbol
-- Type
+  - FunctionSymbol
 - Scope
   - BaseScope
-    - GlobalScope
-    - `LocalScope`
+    - LocalScope
+  - FunctionSymbol
+- SymbolTableListener
+  - enterFunctionDecl
+  - exitFunctionDecl
+  - enterBlock
+  - exitBlock
+  - exitFormalParameter
 
 ## forward reference
 

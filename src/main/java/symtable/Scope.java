@@ -1,7 +1,9 @@
 package symtable;
 
 public interface Scope {
-  public String getScopeName();
+  public String getName();
+
+  public void setName(String name);
 
   public Scope getEnclosingScope();
 

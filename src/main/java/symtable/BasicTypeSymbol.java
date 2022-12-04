@@ -1,6 +1,6 @@
 package symtable;
 
-public class BasicTypeSymbol extends Symbol implements Type {
+public class BasicTypeSymbol extends BaseSymbol implements Type {
   public BasicTypeSymbol(String name) {
     super(name, null);
   }
