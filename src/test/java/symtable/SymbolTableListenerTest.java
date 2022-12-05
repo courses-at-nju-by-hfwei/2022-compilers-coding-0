@@ -23,7 +23,7 @@ public class SymbolTableListenerTest {
 
   @BeforeMethod
   public void setUp() throws IOException {
-    is = new FileInputStream(Path.of("src/test/antlr/symtable/nested.txt").toFile());
+    is = new FileInputStream(Path.of("src/test/antlr/symtable/nested-func.txt").toFile());
   }
 
   @AfterMethod
