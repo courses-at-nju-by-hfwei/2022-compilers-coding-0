@@ -1,4 +1,4 @@
-package symtable;
+package types;
 
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
@@ -12,18 +12,14 @@ import org.testng.annotations.Test;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Files;
 import java.nio.file.Path;
 
-import cymbol.CymbolLexer;
-import cymbol.CymbolParser;
-
-public class SymbolTableListenerTest {
+public class TypeCheckingListenerTest {
   InputStream is = System.in;
 
   @BeforeMethod
   public void setUp() throws IOException {
-    is = new FileInputStream(Path.of("src/test/antlr/symtable/nested.txt").toFile());
+    is = new FileInputStream(Path.of("src/test/antlr/types/a.txt").toFile());
   }
 
   @AfterMethod
@@ -31,19 +27,16 @@ public class SymbolTableListenerTest {
   }
 
   @Test
-  public void testGetAllTokens() throws IOException {
+  public void testTypeChecking() throws IOException {
     CharStream input = CharStreams.fromStream(is);
-    CymbolLexer lexer = new CymbolLexer(input);
+    ArrayLexer lexer = new ArrayLexer(input);
     CommonTokenStream tokens = new CommonTokenStream(lexer);
 
-    CymbolParser parser = new CymbolParser(tokens);
+    ArrayParser parser = new ArrayParser(tokens);
     ParseTree tree = parser.prog();
 
     ParseTreeWalker walker = new ParseTreeWalker();
-    SymbolTableListener symtableListener = new SymbolTableListener();
-    walker.walk(symtableListener, tree);
-
-    Path fileName = Path.of("src/test/antlr/symtable/nested.dot");
-    Files.writeString(fileName, symtableListener.getGraph().toDot());
+    TypeCheckingListener typeCheckingListener = new TypeCheckingListener();
+    walker.walk(typeCheckingListener, tree);
   }
 }
