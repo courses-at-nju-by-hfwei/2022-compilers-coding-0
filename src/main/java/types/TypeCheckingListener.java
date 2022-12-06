@@ -37,16 +37,11 @@ public class TypeCheckingListener extends ArrayBaseListener {
 
   @Override
   public void exitArrDecl(ArrayParser.ArrDeclContext ctx) {
-    String typeName = ctx.type().getText();
-    Type type = new BasicTypeSymbol(typeName);
-
-    Type subArrayType = arrayTypeProperty.get(ctx.arrayType());
-    Type arrayType = new ArrayType(0, (ArrayType) subArrayType);
+    Type arrayType = arrayTypeProperty.get(ctx.arrayType());
     arrayTypeProperty.put(ctx, arrayType);
 
     String arrayName = ctx.ID().getText();
     symbolTable.put(arrayName, new VariableSymbol(arrayName, arrayType));
-
   }
 
   @Override
@@ -59,7 +54,7 @@ public class TypeCheckingListener extends ArrayBaseListener {
     int dimension = Integer.parseInt(ctx.INT().getText());
     Type subArrayType = arrayTypeProperty.get(ctx.arrayType());
 
-    Type arrayType = new ArrayType(dimension, (ArrayType) subArrayType);
+    Type arrayType = new ArrayType(dimension, subArrayType);
     this.arrayTypeProperty.put(ctx, arrayType);
   }
 

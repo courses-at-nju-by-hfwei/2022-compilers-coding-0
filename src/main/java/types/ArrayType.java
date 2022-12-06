@@ -3,22 +3,22 @@ package types;
 import symtable.Type;
 
 public class ArrayType implements Type {
-  int dimension;
+  int count;
   Type subType;
 
-  public ArrayType(int dimension, Type subType) {
-    this.dimension = dimension;
+  public ArrayType(int count, Type subType) {
+    this.count = count;
     this.subType = subType;
   }
 
   @Override
   public String toString() {
     StringBuilder typeStr = new StringBuilder();
-    if (dimension == 0) {
+    if (count == 0) {
       return typeStr.append(subType).toString();
     }
     return typeStr.append("array(")
-        .append(dimension)
+        .append(count)
         .append(",")
         .append(subType)
         .toString();
