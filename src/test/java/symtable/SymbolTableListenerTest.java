@@ -31,7 +31,7 @@ public class SymbolTableListenerTest {
   }
 
   @Test
-  public void testGetAllTokens() throws IOException {
+  public void testSymbolTableListener() throws IOException {
     CharStream input = CharStreams.fromStream(is);
     CymbolLexer lexer = new CymbolLexer(input);
     CommonTokenStream tokens = new CommonTokenStream(lexer);

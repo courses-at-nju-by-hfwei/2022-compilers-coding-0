@@ -1,0 +1,558 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 6,
+    "backwardDepth": 6,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "types.TypeCheckingListener",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_110844025 { 
+   	label=types
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   ArrayBaseListener110844025[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ArrayBaseListener</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ enterAddSub(ctx: AddSubContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ enterArrDecl(ctx: ArrDeclContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ enterArrDeclStat(ctx: ArrDeclStatContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ enterArrayIndex(ctx: ArrayIndexContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ enterAssignStat(ctx: AssignStatContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ enterEQNE(ctx: EQNEContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ enterEmptyArrayType(ctx: EmptyArrayTypeContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ enterEveryRule(ctx: ParserRuleContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ enterId(ctx: IdContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ enterInt(ctx: IntContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ enterMultDiv(ctx: MultDivContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ enterNonEmptyArrayType(ctx: NonEmptyArrayTypeContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ enterProg(ctx: ProgContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ enterType(ctx: TypeContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ enterVarDecl(ctx: VarDeclContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ enterVarDeclStat(ctx: VarDeclStatContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitAddSub(ctx: AddSubContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitArrDecl(ctx: ArrDeclContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitArrDeclStat(ctx: ArrDeclStatContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitArrayIndex(ctx: ArrayIndexContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitAssignStat(ctx: AssignStatContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitEQNE(ctx: EQNEContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitEmptyArrayType(ctx: EmptyArrayTypeContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitEveryRule(ctx: ParserRuleContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitId(ctx: IdContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitInt(ctx: IntContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitMultDiv(ctx: MultDivContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitNonEmptyArrayType(ctx: NonEmptyArrayTypeContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitProg(ctx: ProgContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitType(ctx: TypeContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitVarDecl(ctx: VarDeclContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitVarDeclStat(ctx: VarDeclStatContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ visitErrorNode(node: ErrorNode)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ visitTerminal(node: TerminalNode)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+ArrayBaseVisitor110844025[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ArrayBaseVisitor&lt;T&gt;</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ visitAddSub(ctx: AddSubContext): T</TD></TR>
+<TR><TD ALIGN="LEFT" >+ visitArrDecl(ctx: ArrDeclContext): T</TD></TR>
+<TR><TD ALIGN="LEFT" >+ visitArrDeclStat(ctx: ArrDeclStatContext): T</TD></TR>
+<TR><TD ALIGN="LEFT" >+ visitArrayIndex(ctx: ArrayIndexContext): T</TD></TR>
+<TR><TD ALIGN="LEFT" >+ visitAssignStat(ctx: AssignStatContext): T</TD></TR>
+<TR><TD ALIGN="LEFT" >+ visitEQNE(ctx: EQNEContext): T</TD></TR>
+<TR><TD ALIGN="LEFT" >+ visitEmptyArrayType(ctx: EmptyArrayTypeContext): T</TD></TR>
+<TR><TD ALIGN="LEFT" >+ visitId(ctx: IdContext): T</TD></TR>
+<TR><TD ALIGN="LEFT" >+ visitInt(ctx: IntContext): T</TD></TR>
+<TR><TD ALIGN="LEFT" >+ visitMultDiv(ctx: MultDivContext): T</TD></TR>
+<TR><TD ALIGN="LEFT" >+ visitNonEmptyArrayType(ctx: NonEmptyArrayTypeContext): T</TD></TR>
+<TR><TD ALIGN="LEFT" >+ visitProg(ctx: ProgContext): T</TD></TR>
+<TR><TD ALIGN="LEFT" >+ visitType(ctx: TypeContext): T</TD></TR>
+<TR><TD ALIGN="LEFT" >+ visitVarDecl(ctx: VarDeclContext): T</TD></TR>
+<TR><TD ALIGN="LEFT" >+ visitVarDeclStat(ctx: VarDeclStatContext): T</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+ArrayType110844025[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ArrayType</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   count: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   subType: Type [0..1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+TypeCheckingListener110844025[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)TypeCheckingListener</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   arrayTypeProperty: ParseTreeProperty&lt;Type&gt; [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   basicTypeProperty: ParseTreeProperty&lt;Type&gt; [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   symbolTable: Map&lt;String, VariableSymbol&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ enterArrDecl(ctx: ArrDeclContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ enterEmptyArrayType(ctx: EmptyArrayTypeContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ enterNonEmptyArrayType(ctx: NonEmptyArrayTypeContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitArrDecl(ctx: ArrDeclContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitArrDeclStat(ctx: ArrDeclStatContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitArrayIndex(ctx: ArrayIndexContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitAssignStat(ctx: AssignStatContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitEmptyArrayType(ctx: EmptyArrayTypeContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitId(ctx: IdContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitInt(ctx: IntContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitNonEmptyArrayType(ctx: NonEmptyArrayTypeContext)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitVarDecl(ctx: VarDeclContext)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1804181863 { 
+   	label=symtable
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   BaseSymbol1804181863[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)BaseSymbol</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   name: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   type: Type [0..1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+BasicTypeSymbol1804181863[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)BasicTypeSymbol</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+FunctionSymbol1804181863[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)FunctionSymbol</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+VariableSymbol1804181863[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)VariableSymbol</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_2005705800 { 
+   	label=ArrayParser
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   AddSubContext1499169341[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)AddSubContext</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+   lhs: ExprContext [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   op: Token [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   rhs: ExprContext [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ ADD(): TerminalNode</TD></TR>
+<TR><TD ALIGN="LEFT" >+ SUB(): TerminalNode</TD></TR>
+<TR><TD ALIGN="LEFT" >+ accept(visitor: ParseTreeVisitor&lt;? extends T&gt;): T</TD></TR>
+<TR><TD ALIGN="LEFT" >+ enterRule(listener: ParseTreeListener)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitRule(listener: ParseTreeListener)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ expr(): List&lt;ExprContext&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ expr(i: int): ExprContext</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+ArrDeclContext1499169341[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ArrDeclContext</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ ID(): TerminalNode</TD></TR>
+<TR><TD ALIGN="LEFT" >+ SEMI(): TerminalNode</TD></TR>
+<TR><TD ALIGN="LEFT" >+ accept(visitor: ParseTreeVisitor&lt;? extends T&gt;): T</TD></TR>
+<TR><TD ALIGN="LEFT" >+ arrayType(): ArrayTypeContext</TD></TR>
+<TR><TD ALIGN="LEFT" >+ enterRule(listener: ParseTreeListener)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitRule(listener: ParseTreeListener)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ type(): TypeContext</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+ArrDeclStatContext1499169341[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ArrDeclStatContext</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ accept(visitor: ParseTreeVisitor&lt;? extends T&gt;): T</TD></TR>
+<TR><TD ALIGN="LEFT" >+ arrDecl(): ArrDeclContext</TD></TR>
+<TR><TD ALIGN="LEFT" >+ enterRule(listener: ParseTreeListener)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitRule(listener: ParseTreeListener)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+ArrayIndexContext1499169341[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ArrayIndexContext</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+   index: ExprContext [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   primary: ExprContext [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ LBRACK(): TerminalNode</TD></TR>
+<TR><TD ALIGN="LEFT" >+ RBRACK(): TerminalNode</TD></TR>
+<TR><TD ALIGN="LEFT" >+ accept(visitor: ParseTreeVisitor&lt;? extends T&gt;): T</TD></TR>
+<TR><TD ALIGN="LEFT" >+ enterRule(listener: ParseTreeListener)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitRule(listener: ParseTreeListener)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ expr(): List&lt;ExprContext&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ expr(i: int): ExprContext</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+ArrayTypeContext1499169341[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ArrayTypeContext</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ copyFrom(ctx: ArrayTypeContext)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+AssignStatContext1499169341[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)AssignStatContext</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+   lhs: ExprContext [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   rhs: ExprContext [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ ASSIGN(): TerminalNode</TD></TR>
+<TR><TD ALIGN="LEFT" >+ SEMI(): TerminalNode</TD></TR>
+<TR><TD ALIGN="LEFT" >+ accept(visitor: ParseTreeVisitor&lt;? extends T&gt;): T</TD></TR>
+<TR><TD ALIGN="LEFT" >+ enterRule(listener: ParseTreeListener)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitRule(listener: ParseTreeListener)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ expr(): List&lt;ExprContext&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ expr(i: int): ExprContext</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+EQNEContext1499169341[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)EQNEContext</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+   lhs: ExprContext [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   op: Token [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   rhs: ExprContext [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ EE(): TerminalNode</TD></TR>
+<TR><TD ALIGN="LEFT" >+ NE(): TerminalNode</TD></TR>
+<TR><TD ALIGN="LEFT" >+ accept(visitor: ParseTreeVisitor&lt;? extends T&gt;): T</TD></TR>
+<TR><TD ALIGN="LEFT" >+ enterRule(listener: ParseTreeListener)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitRule(listener: ParseTreeListener)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ expr(): List&lt;ExprContext&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ expr(i: int): ExprContext</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+EmptyArrayTypeContext1499169341[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)EmptyArrayTypeContext</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ accept(visitor: ParseTreeVisitor&lt;? extends T&gt;): T</TD></TR>
+<TR><TD ALIGN="LEFT" >+ enterRule(listener: ParseTreeListener)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitRule(listener: ParseTreeListener)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+ExprContext1499169341[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ExprContext</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ copyFrom(ctx: ExprContext)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+IdContext1499169341[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)IdContext</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ ID(): TerminalNode</TD></TR>
+<TR><TD ALIGN="LEFT" >+ accept(visitor: ParseTreeVisitor&lt;? extends T&gt;): T</TD></TR>
+<TR><TD ALIGN="LEFT" >+ enterRule(listener: ParseTreeListener)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitRule(listener: ParseTreeListener)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+IntContext1499169341[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)IntContext</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ INT(): TerminalNode</TD></TR>
+<TR><TD ALIGN="LEFT" >+ accept(visitor: ParseTreeVisitor&lt;? extends T&gt;): T</TD></TR>
+<TR><TD ALIGN="LEFT" >+ enterRule(listener: ParseTreeListener)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitRule(listener: ParseTreeListener)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+MultDivContext1499169341[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MultDivContext</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+   lhs: ExprContext [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   op: Token [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   rhs: ExprContext [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ DIV(): TerminalNode</TD></TR>
+<TR><TD ALIGN="LEFT" >+ MUL(): TerminalNode</TD></TR>
+<TR><TD ALIGN="LEFT" >+ accept(visitor: ParseTreeVisitor&lt;? extends T&gt;): T</TD></TR>
+<TR><TD ALIGN="LEFT" >+ enterRule(listener: ParseTreeListener)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitRule(listener: ParseTreeListener)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ expr(): List&lt;ExprContext&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ expr(i: int): ExprContext</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+NonEmptyArrayTypeContext1499169341[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)NonEmptyArrayTypeContext</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ INT(): TerminalNode</TD></TR>
+<TR><TD ALIGN="LEFT" >+ LBRACK(): TerminalNode</TD></TR>
+<TR><TD ALIGN="LEFT" >+ RBRACK(): TerminalNode</TD></TR>
+<TR><TD ALIGN="LEFT" >+ accept(visitor: ParseTreeVisitor&lt;? extends T&gt;): T</TD></TR>
+<TR><TD ALIGN="LEFT" >+ arrayType(): ArrayTypeContext</TD></TR>
+<TR><TD ALIGN="LEFT" >+ enterRule(listener: ParseTreeListener)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitRule(listener: ParseTreeListener)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+StatContext1499169341[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)StatContext</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ copyFrom(ctx: StatContext)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+VarDeclContext1499169341[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)VarDeclContext</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ ID(): TerminalNode</TD></TR>
+<TR><TD ALIGN="LEFT" >+ SEMI(): TerminalNode</TD></TR>
+<TR><TD ALIGN="LEFT" >+ accept(visitor: ParseTreeVisitor&lt;? extends T&gt;): T</TD></TR>
+<TR><TD ALIGN="LEFT" >+ enterRule(listener: ParseTreeListener)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitRule(listener: ParseTreeListener)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ type(): TypeContext</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+VarDeclStatContext1499169341[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)VarDeclStatContext</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ accept(visitor: ParseTreeVisitor&lt;? extends T&gt;): T</TD></TR>
+<TR><TD ALIGN="LEFT" >+ enterRule(listener: ParseTreeListener)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ exitRule(listener: ParseTreeListener)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ varDecl(): VarDeclContext</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+'edges    
+ArrayBaseListener110844025 -> TypeCheckingListener110844025[arrowhead=none, arrowtail=empty, dir=both];
+ArrayTypeContext1499169341 -> EmptyArrayTypeContext1499169341[arrowhead=none, arrowtail=empty, dir=both];
+ArrayTypeContext1499169341 -> NonEmptyArrayTypeContext1499169341[arrowhead=none, arrowtail=empty, dir=both];
+BaseSymbol1804181863 -> BasicTypeSymbol1804181863[arrowhead=none, arrowtail=empty, dir=both];
+BaseSymbol1804181863 -> FunctionSymbol1804181863[arrowhead=none];
+BaseSymbol1804181863 -> VariableSymbol1804181863[arrowhead=none, arrowtail=empty, dir=both];
+ExprContext1499169341 -> AddSubContext1499169341[arrowhead=none, arrowtail=empty, dir=both];
+ExprContext1499169341 -> ArrayIndexContext1499169341[arrowhead=none, arrowtail=empty, dir=both];
+ExprContext1499169341 -> EQNEContext1499169341[arrowhead=none, arrowtail=empty, dir=both];
+ExprContext1499169341 -> IdContext1499169341[arrowhead=none, arrowtail=empty, dir=both];
+ExprContext1499169341 -> IntContext1499169341[arrowhead=none, arrowtail=empty, dir=both];
+ExprContext1499169341 -> MultDivContext1499169341[arrowhead=none, arrowtail=empty, dir=both];
+StatContext1499169341 -> ArrDeclStatContext1499169341[arrowhead=none, arrowtail=empty, dir=both];
+StatContext1499169341 -> AssignStatContext1499169341[arrowhead=none, arrowtail=empty, dir=both];
+StatContext1499169341 -> VarDeclStatContext1499169341[arrowhead=none, arrowtail=empty, dir=both];
+TypeCheckingListener110844025 -> ArrDeclStatContext1499169341[label="exitArrDeclStat() -> arrDecl()"];
+TypeCheckingListener110844025 -> ArrayType110844025[arrowhead=none];
+TypeCheckingListener110844025 -> BasicTypeSymbol1804181863[arrowhead=none];
+TypeCheckingListener110844025 -> IdContext1499169341[label="exitId() -> ID()"];
+TypeCheckingListener110844025 -> VariableSymbol1804181863[label="symbolTable
+[0..*]"];
+VarDeclContext1499169341 -> ArrayBaseListener110844025[arrowhead=none];
+VarDeclContext1499169341 -> ArrayBaseVisitor110844025[arrowhead=none];
+    
+}
+@enduml

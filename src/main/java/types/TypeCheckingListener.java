@@ -14,20 +14,9 @@ public class TypeCheckingListener extends ArrayBaseListener {
   private final ParseTreeProperty<Type> arrayTypeProperty = new ParseTreeProperty<>();
   private final ParseTreeProperty<Type> basicTypeProperty = new ParseTreeProperty<>();
 
-  @Override
-  public void exitArrDeclStat(ArrayParser.ArrDeclStatContext ctx) {
-    System.out.println("ArrayType : " + arrayTypeProperty.get(ctx.arrDecl()));
-  }
-
-  @Override
-  public void exitVarDecl(ArrayParser.VarDeclContext ctx) {
-    String varName = ctx.ID().getText();
-    String typeName = ctx.type().getText();
-    Type type = new BasicTypeSymbol(typeName);
-
-    symbolTable.put(varName, new VariableSymbol(varName, type));
-  }
-
+  /**
+   * Pass the basic type from top to bottom
+   */
   @Override
   public void enterArrDecl(ArrayParser.ArrDeclContext ctx) {
     String typeName = ctx.type().getText();
@@ -36,17 +25,22 @@ public class TypeCheckingListener extends ArrayBaseListener {
   }
 
   @Override
-  public void exitArrDecl(ArrayParser.ArrDeclContext ctx) {
-    Type arrayType = arrayTypeProperty.get(ctx.arrayType());
-    arrayTypeProperty.put(ctx, arrayType);
-
-    String arrayName = ctx.ID().getText();
-    symbolTable.put(arrayName, new VariableSymbol(arrayName, arrayType));
+  public void enterNonEmptyArrayType(ArrayParser.NonEmptyArrayTypeContext ctx) {
+    basicTypeProperty.put(ctx, basicTypeProperty.get(ctx.parent));
   }
 
   @Override
-  public void enterNonEmptyArrayType(ArrayParser.NonEmptyArrayTypeContext ctx) {
+  public void enterEmptyArrayType(ArrayParser.EmptyArrayTypeContext ctx) {
     basicTypeProperty.put(ctx, basicTypeProperty.get(ctx.parent));
+  }
+
+  /**
+   * Below: construct the array type from bottom to top
+   */
+
+  @Override
+  public void exitEmptyArrayType(ArrayParser.EmptyArrayTypeContext ctx) {
+    arrayTypeProperty.put(ctx, new ArrayType(0, basicTypeProperty.get(ctx.parent)));
   }
 
   @Override
@@ -59,28 +53,22 @@ public class TypeCheckingListener extends ArrayBaseListener {
   }
 
   @Override
-  public void enterEmptyArrayType(ArrayParser.EmptyArrayTypeContext ctx) {
-    basicTypeProperty.put(ctx, basicTypeProperty.get(ctx.parent));
+  public void exitArrDecl(ArrayParser.ArrDeclContext ctx) {
+    Type arrayType = arrayTypeProperty.get(ctx.arrayType());
+    arrayTypeProperty.put(ctx, arrayType);
+
+    String arrayName = ctx.ID().getText();
+    symbolTable.put(arrayName, new VariableSymbol(arrayName, arrayType));
   }
 
   @Override
-  public void exitEmptyArrayType(ArrayParser.EmptyArrayTypeContext ctx) {
-    arrayTypeProperty.put(ctx, new ArrayType(0, basicTypeProperty.get(ctx.parent)));
+  public void exitArrDeclStat(ArrayParser.ArrDeclStatContext ctx) {
+    System.out.println("ArrayType : " + arrayTypeProperty.get(ctx.arrDecl()));
   }
 
-  @Override
-  public void exitArrayIndex(ArrayParser.ArrayIndexContext ctx) {
-    arrayTypeProperty.put(ctx,
-        ((ArrayType) arrayTypeProperty.get(ctx.primary)).subType);
-  }
-
-  @Override
-  public void exitAssignStat(ArrayParser.AssignStatContext ctx) {
-    Type lhs = arrayTypeProperty.get(ctx.lhs);
-    Type rhs = arrayTypeProperty.get(ctx.rhs);
-    System.out.println(lhs + " : " + rhs);
-  }
-
+  /**
+   * Below: type reference and inference
+   */
   @Override
   public void exitId(ArrayParser.IdContext ctx) {
     arrayTypeProperty.put(ctx, symbolTable.get(ctx.ID().getText()).getType());
@@ -89,5 +77,31 @@ public class TypeCheckingListener extends ArrayBaseListener {
   @Override
   public void exitInt(ArrayParser.IntContext ctx) {
     arrayTypeProperty.put(ctx, new BasicTypeSymbol("int"));
+  }
+
+  @Override
+  public void exitVarDecl(ArrayParser.VarDeclContext ctx) {
+    String varName = ctx.ID().getText();
+    String typeName = ctx.type().getText();
+    Type type = new BasicTypeSymbol(typeName);
+
+    symbolTable.put(varName, new VariableSymbol(varName, type));
+  }
+
+  // type inference
+  @Override
+  public void exitArrayIndex(ArrayParser.ArrayIndexContext ctx) {
+    arrayTypeProperty.put(ctx,
+        ((ArrayType) arrayTypeProperty.get(ctx.primary)).subType);
+  }
+
+  /**
+   * Below: assign
+   */
+  @Override
+  public void exitAssignStat(ArrayParser.AssignStatContext ctx) {
+    Type lhs = arrayTypeProperty.get(ctx.lhs);
+    Type rhs = arrayTypeProperty.get(ctx.rhs);
+    System.out.println(lhs + " : " + rhs);
   }
 }
