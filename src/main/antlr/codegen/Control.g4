@@ -1,22 +1,24 @@
 grammar Control;
 
 @header {
-package control;
+package codegen;
 }
 
 prog : stat ;
 
 stat : assign                                   # AssignStat
-     | 'if' '(' bool ')' stat ('else' stat)?    # IfStat
+     | 'if' '(' bool ')' stat 'else' stat       # IfElseStat
+     | 'if' '(' bool ')' stat                   # IfStat
      | 'while' '(' bool ')' stat                # WhileStat
      | stat stat                                # SeqState
      ;
 
-bool : '!' bool                             # NotExpr
-     | lhs = bool ('||' | '&&') rhs = bool  # OrAndExpr
-     | expr ('>' | '<' | '==' | '<=' | '>=') expr   # RelExpr
-     | 'true'                               # TrueExpr
-     | 'false'                              # FalseExpr
+bool : '!' bool                    # NotExpr
+     | lhs = bool '&&' rhs = bool  # AndExpr
+     | lhs = bool '||' rhs = bool  # OrExpr
+     | lhs = expr relop = ('>' | '<' | '==' | '!=' | '<=' | '>=') rhs = expr   # RelExpr
+     | 'true'                      # TrueExpr
+     | 'false'                     # FalseExpr
      ;
 
 /**
@@ -27,7 +29,10 @@ assign : ID '=' expr ;
 expr : '-' expr         # NegExpr
      | expr '+' expr    # ADDExpr
      | '(' expr ')'     # ParenExpr
-     | ID               # IDExpr
+     | ID               # IdExpr
+     | INT              # IntExpr
      ;
 
 ID : [a-z] ;
+INT : [0-9] ;
+WS : [ \t\r\n]+ -> skip;

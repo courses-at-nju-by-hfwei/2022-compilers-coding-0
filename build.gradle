@@ -13,6 +13,7 @@ repositories {
 dependencies {
     antlr 'org.antlr:antlr4:4.11.1'
     implementation group: 'org.testng', name: 'testng', version: '[6.11]'
+    implementation 'org.apache.commons:commons-lang3:3.0'
     implementation("com.google.guava:guava:31.1-jre")
     implementation group: 'org.bytedeco', name: 'llvm-platform', version: '11.1.0-1.5.5'
 }
